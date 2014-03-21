@@ -73,3 +73,5 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set foldmethod=syntax
 set nofoldenable
 
+" Show tabline at the top 
+let g:airline#extensions#tabline#enabled = 1
