@@ -11,6 +11,7 @@ ZSH_THEME="robbyrussell"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias amend="git commit --amend --no-edit"
+alias gci="git commit -v"
 
 function vimp {
     bundle=("${(s:/:)1}")
