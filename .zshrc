@@ -16,6 +16,7 @@ alias gci="git commit -v"
 alias index="find . -name index.html | head -n1 | xargs open"
 alias gitx="open -a GitX ."
 alias alloy="java -jar /Applications/Alloy4.2_2014-03-07.app/Contents/Resources/Java/alloy4.2_2014-03-07.jar"
+alias make="/usr/local/Cellar/make/4.0/bin/make"
 
 function vimp {
     bundle=("${(s:/:)1}")
