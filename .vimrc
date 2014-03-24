@@ -73,5 +73,21 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set foldmethod=syntax
 set nofoldenable
 
-" Show tabline at the top 
+" Show tabline at the top
 let g:airline#extensions#tabline#enabled = 1
+
+" Incremental search
+set incsearch
+
+" mouse scrolling
+" I turn this off so that I can select properly
+" with the mouse
+" set mouse=a
+
+" split right by default
+set splitright
+
+" \p for older paste, \P for newer paste
+" https://github.com/maxbrunsfeld/vim-yankstack#configuration
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
