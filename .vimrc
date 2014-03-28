@@ -33,6 +33,11 @@ set smartcase
 " Jump to definition
 nnoremap <leader>. :CtrlPTag<cr>
 
+" Copy the directory name to clipboard
+noremap <leader>d :let @* = expand("%")<cr>
+" Full directory
+noremap <leader>D :let @* = expand("%:p")<cr>
+
 " Highlight current line
 set cursorline
 
@@ -77,7 +82,7 @@ set nofoldenable
 let g:airline#extensions#tabline#enabled = 1
 
 " Incremental search
-set incsearch
+" set incsearch
 
 " mouse scrolling
 " I turn this off so that I can select properly
