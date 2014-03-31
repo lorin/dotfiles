@@ -19,6 +19,8 @@ alias make="/usr/local/Cellar/make/4.0/bin/make"
 alias pf="open -a Path\ Finder"
 alias ctags="/usr/local/bin/ctags"
 
+alias readlink=greadlink
+
 function vimp {
     bundle=("${(s:/:)1}")
     hub clone $1 ~/.vim/bundle/${bundle[2]}
@@ -28,6 +30,10 @@ function alloy {
     java -jar /Applications/Alloy4.2_2014-03-07.app/Contents/Resources/Java/alloy4.2_2014-03-07.jar $1 &
 }
 
+function postCallVim
+{
+  osascript -e 'tell application "MacVim" to activate'
+}
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -63,7 +69,7 @@ function alloy {
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git autojump bundler rbenv brew vagrant virtualenvwrapper heroku)
+plugins=(git autojump bundler rbenv brew vagrant virtualenvwrapper heroku vim-interaction)
 
 source $ZSH/oh-my-zsh.sh
 
