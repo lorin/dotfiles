@@ -2,6 +2,14 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+" File types
+" .rabl is ruby
+au BufNewFile,BufRead *.rabl setlocal ft=ruby
+
+" 2 tabs for html and ruby
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+
 " Needed for airline to show
 set laststatus=2
 set clipboard=unnamed
