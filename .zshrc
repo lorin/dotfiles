@@ -35,6 +35,22 @@ function postCallVim
   osascript -e 'tell application "MacVim" to activate'
 }
 
+function vp
+{
+    url=$(
+        osascript 2>/dev/null <<EOF
+    tell application "Google Chrome"
+        get URL of active tab of first window
+    end tell
+EOF
+    )
+    elts=(${(s:/:)url})
+    pkg=$elts[-2]/$elts[-1]
+    echo "Installing $pkg"
+    vimp $pkg
+}
+
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
