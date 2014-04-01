@@ -46,6 +46,9 @@ noremap <leader>d :let @* = expand("%")<cr>
 " Full directory
 noremap <leader>D :let @* = expand("%:p")<cr>
 
+" Close the buffer without losing the split
+nmap <leader>b :bprevious<CR>:bdelete #<CR>
+
 " Highlight current line
 set cursorline
 
@@ -107,3 +110,6 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " Use gmake
 :set makeprg=/usr/local/Cellar/make/4.0/bin/make
+
+" I prefer :ag to :Ag
+cabbrev ag Ag
