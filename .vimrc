@@ -2,6 +2,12 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+" Don't need vi compatibility
+set nocompatible
+
+"Write the old file out when switching between files.
+set autowrite
+
 " File types
 " .rabl is ruby
 au BufNewFile,BufRead *.rabl setlocal ft=ruby
@@ -9,6 +15,13 @@ au BufNewFile,BufRead *.rabl setlocal ft=ruby
 " 2 tabs for html and ruby
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+
+" Don't autocomment .vimrc or .zshrc
+autocmd FileType vim setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType zsh setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" .json is json
+au BufRead,BufNewFile *.json set filetype=json
 
 " Needed for airline to show
 set laststatus=2
@@ -20,6 +33,9 @@ highlight clear SignColumn
 set encoding=utf-8
 set textwidth=80
 let g:airline_powerline_fonts = 1
+
+" Open tagbar on the left
+let g:tagbar_left = 1
 
 " Soft tabs of length 4
 set tabstop=4
@@ -53,14 +69,14 @@ nmap <leader>b :bprevious<CR>:bdelete #<CR>
 set cursorline
 
 " Eat trailing whitespace on save
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-
-autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+"fun! <SID>StripTrailingWhitespaces()
+"    let l = line(".")
+"    let c = col(".")
+"    %s/\s\+$//e
+"    call cursor(l, c)
+"endfun
+"
+"autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 
 " Don't show whitespace notices
@@ -113,3 +129,7 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " I prefer :ag to :Ag
 cabbrev ag Ag
+
+" JSONlint
+com! JSON %!jsonlint
+

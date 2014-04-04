@@ -6,6 +6,17 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
+DEFAULT_USER=lorinhochstein
+#
+# Powerline
+#ZSH_THEME="powerline"
+#POWERLINE_HIDE_USER_NAME="true"
+#POWERLINE_HIDE_HOST_NAME="true"
+##POWERLINE_SHOW_GIT_ON_RIGHT="true"
+#POWERLINE_RIGHT_A="exit-status"
+#POWERLINE_RIGHT_B="none"
+
+
 
 # Aliases
 alias vim="/usr/local/bin/vim"
@@ -18,6 +29,7 @@ alias gitx="open -a GitX ."
 alias make="/usr/local/Cellar/make/4.0/bin/make"
 alias pf="open -a Path\ Finder"
 alias ctags="/usr/local/bin/ctags"
+alias tags="ctags *.h *.cpp"
 
 alias readlink=greadlink
 
@@ -46,8 +58,12 @@ EOF
     )
     elts=(${(s:/:)url})
     pkg=$elts[-2]/$elts[-1]
-    echo "Installing $pkg"
-    vimp $pkg
+    if [[ $elts[2] == "github.com" ]]; then
+        echo "Installing $pkg"
+        vimp $pkg
+    else
+        echo "Not a Github repo: $url"
+    fi
 }
 
 
@@ -85,7 +101,8 @@ EOF
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git autojump bundler rbenv brew vagrant virtualenvwrapper heroku vim-interaction)
+#plugins=(git autojump bundler rbenv brew vagrant heroku vim-interaction vi-mode)
+plugins=(git autojump bundler rbenv brew vagrant heroku vim-interaction)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,4 +137,14 @@ export DOCKER_HOST=tcp://
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
+# Some leftover emacs bindings even though we use
+# vim mode
+bindkey -v
+bindkey "^R" history-incremental-search-backward
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^K" kill-whole-line
+bindkey "^D" delete-char
+
 source  ~/.zshrc.local
+
