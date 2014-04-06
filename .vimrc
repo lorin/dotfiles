@@ -23,6 +23,9 @@ autocmd FileType zsh setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " .json is json
 au BufRead,BufNewFile *.json set filetype=json
 
+" Template for new Python file
+au BufNewFile *.py 0r ~/.vim/py.skel
+
 " Needed for airline to show
 set laststatus=2
 set clipboard=unnamed
@@ -133,3 +136,18 @@ cabbrev ag Ag
 " JSONlint
 com! JSON %!jsonlint
 
+if executable('coffeetags')
+  let g:tagbar_type_coffee = {
+        \ 'ctagsbin' : 'coffeetags',
+        \ 'ctagsargs' : '',
+        \ 'kinds' : [
+        \ 'f:functions',
+        \ 'o:object',
+        \ ],
+        \ 'sro' : ".",
+        \ 'kind2scope' : {
+        \ 'f' : 'object',
+        \ 'o' : 'object',
+        \ }
+        \ }
+endif
