@@ -23,8 +23,9 @@ autocmd FileType zsh setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " .json is json
 au BufRead,BufNewFile *.json set filetype=json
 
-" Template for new Python file
+" Templates for new file
 au BufNewFile *.py 0r ~/.vim/py.skel
+au BufNewFile *.html 0r ~/.vim/html.skel
 
 " Needed for airline to show
 set laststatus=2
