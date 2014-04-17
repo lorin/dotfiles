@@ -42,6 +42,10 @@ function alloy {
     java -jar /Applications/Alloy4.2_2014-03-07.app/Contents/Resources/Java/alloy4.2_2014-03-07.jar $1 &
 }
 
+function ubuntu {
+ubuntu-ami-locator --itype ebs --region us-east-1 --suite precise --stream server --arch amd64 --tag release --current | tr -d '\n' | pbcopy && pbpaste && echo
+}
+
 function postCallVim
 {
   osascript -e 'tell application "MacVim" to activate'
@@ -102,7 +106,7 @@ EOF
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git autojump bundler rbenv brew vagrant heroku vim-interaction vi-mode)
-plugins=(git autojump bundler rbenv brew vagrant heroku vim-interaction)
+plugins=(git autojump bundler rbenv brew vagrant heroku vim-interaction vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
