@@ -22,6 +22,7 @@ DEFAULT_USER=lorinhochstein
 alias vim="/usr/local/bin/vim"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
+alias zshrclocal="vim ~/.zshrc.local"
 alias amend="git commit --amend --no-edit"
 alias gci="git commit -v"
 alias index="find . -name index.html | head -n1 | xargs open"
