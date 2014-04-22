@@ -31,6 +31,13 @@ alias make="/usr/local/Cellar/make/4.0/bin/make"
 alias pf="open -a Path\ Finder"
 alias ctags="/usr/local/bin/ctags"
 alias tags="ctags *.h *.cpp"
+alias t="ctags -R ."
+alias uuid="uuidgen | tr -d - | tr '[:upper:]' '[:lower:]' | tr -d '\n' | pbcopy ; pbpaste ; echo"
+alias ec2="aws ec2"
+
+function in {
+    aws ec2 describe-instances --instance-ids $1 | jq ".Reservations[0].Instances[0]"
+}
 
 alias readlink=greadlink
 
@@ -43,10 +50,13 @@ function alloy {
     java -jar /Applications/Alloy4.2_2014-03-07.app/Contents/Resources/Java/alloy4.2_2014-03-07.jar $1 &
 }
 
-function ubuntu {
+function precise {
 ubuntu-ami-locator --itype ebs --region us-east-1 --suite precise --stream server --arch amd64 --tag release --current | tr -d '\n' | pbcopy && pbpaste && echo
 }
 
+function trusty {
+ubuntu-ami-locator --itype ebs --region us-east-1 --suite trusty --stream server --arch amd64 --tag release --current | tr -d '\n' | pbcopy && pbpaste && echo
+}
 function postCallVim
 {
   osascript -e 'tell application "MacVim" to activate'
@@ -121,7 +131,7 @@ export PAGER="less -F -X"
 # make vim happy
 export TERM=xterm-256color
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/Cellar/go/1.2.1/libexec/bin"
 
 [ -s ~/.scm_breeze/scm_breeze.sh ] && source ~/.scm_breeze/scm_breeze.sh
 
@@ -152,4 +162,4 @@ bindkey "^K" kill-whole-line
 bindkey "^D" delete-char
 
 source  ~/.zshrc.local
-
+source ~/aws_zsh_completer.sh
