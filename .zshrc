@@ -34,6 +34,11 @@ alias tags="ctags *.h *.cpp"
 alias t="ctags -R ."
 alias uuid="uuidgen | tr -d - | tr '[:upper:]' '[:lower:]' | tr -d '\n' | pbcopy ; pbpaste ; echo"
 alias ec2="aws ec2"
+alias describe-instances="aws ec2 describe-instances --instance-ids"
+
+function console {
+    aws ec2 get-console-output --instance-id $1 | jq ".Output" | gsed -e 's/\\r//g' -e 's/\\n/\n/g'
+}
 
 function in {
     aws ec2 describe-instances --instance-ids $1 | jq ".Reservations[0].Instances[0]"
