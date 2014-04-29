@@ -35,6 +35,11 @@ alias t="ctags -R ."
 alias uuid="uuidgen | tr -d - | tr '[:upper:]' '[:lower:]' | tr -d '\n' | pbcopy ; pbpaste ; echo"
 alias ec2="aws ec2"
 alias describe-instances="aws ec2 describe-instances --instance-ids"
+alias instance=describe-instances
+alias dir="pwd | pbcopy"
+alias qss="pkill QuickSilver && open -a QuickSilver"
+alias a="ansible"
+alias ap="ansible -m ping"
 
 function console {
     aws ec2 get-console-output --instance-id $1 | jq ".Output" | gsed -e 's/\\r//g' -e 's/\\n/\n/g'
@@ -137,6 +142,8 @@ export PAGER="less -F -X"
 export TERM=xterm-256color
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/Cellar/go/1.2.1/libexec/bin"
+
+export K2PDFOPT="-dev kpw"
 
 [ -s ~/.scm_breeze/scm_breeze.sh ] && source ~/.scm_breeze/scm_breeze.sh
 

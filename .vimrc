@@ -23,6 +23,9 @@ autocmd FileType zsh setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " .json is json
 au BufRead,BufNewFile *.json set filetype=json
 
+" .yml is ansible
+au BufRead,BufNewFile *.yml set filetype=ansible
+
 " Templates for new file
 au BufNewFile *.py 0r ~/.vim/py.skel
 au BufNewFile *.html 0r ~/.vim/html.skel
@@ -134,6 +137,9 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 " I prefer :ag to :Ag
 cabbrev ag Ag
 
+" I prefer :rake to Rake
+cabbrev rake Rake
+
 " JSONlint
 com! JSON %!jsonlint
 
@@ -158,3 +164,8 @@ nmap <leader>l :set list!<CR>
  
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
+
+" mustache abbreviations
+" https://github.com/mustache/vim-mustache-handlebars
+
+let g:mustache_abbreviations = 1
