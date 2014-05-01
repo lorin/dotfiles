@@ -127,7 +127,7 @@ EOF
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git autojump bundler rbenv brew vagrant heroku vim-interaction vi-mode)
-plugins=(git autojump bundler rbenv brew vagrant heroku vim-interaction vi-mode)
+plugins=(git autojump bundler rbenv brew vagrant heroku vim-interaction vi-mode virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
