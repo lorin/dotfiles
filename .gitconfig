@@ -28,3 +28,5 @@
 	sha = rev-parse HEAD
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
     ci = commit -v
+[init]
+	templatedir = ~/.git_template
