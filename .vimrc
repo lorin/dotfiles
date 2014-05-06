@@ -75,16 +75,6 @@ nmap <leader>b :bprevious<CR>:bdelete #<CR>
 " Highlight current line
 set cursorline
 
-" Eat trailing whitespace on save
-"fun! <SID>StripTrailingWhitespaces()
-"    let l = line(".")
-"    let c = col(".")
-"    %s/\s\+$//e
-"    call cursor(l, c)
-"endfun
-"
-"autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-
 
 " Don't show whitespace notices
 let g:airline_detect_whitespace=0
@@ -143,6 +133,9 @@ cabbrev rake Rake
 " JSONlint
 com! JSON %!jsonlint
 
+com! Vimrc e ~/.vimrc
+com! Zshrc e ~/.zshrc
+
 if executable('coffeetags')
   let g:tagbar_type_coffee = {
         \ 'ctagsbin' : 'coffeetags',
@@ -161,7 +154,7 @@ endif
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
- 
+
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
@@ -169,3 +162,4 @@ set listchars=tab:▸\ ,eol:¬
 " https://github.com/mustache/vim-mustache-handlebars
 
 let g:mustache_abbreviations = 1
+
