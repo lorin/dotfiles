@@ -163,3 +163,5 @@ set listchars=tab:▸\ ,eol:¬
 
 let g:mustache_abbreviations = 1
 
+" test current file with rspec
+map ,t :w\|:!bin/rspec %<cr>

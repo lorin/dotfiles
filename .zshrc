@@ -49,6 +49,7 @@ function in {
     aws ec2 describe-instances --instance-ids $1 | jq ".Reservations[0].Instances[0]"
 }
 
+# Workaround for https://github.com/robbyrussell/oh-my-zsh/issues/2673
 alias readlink=greadlink
 
 function vimp {
