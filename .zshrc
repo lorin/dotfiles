@@ -136,13 +136,16 @@ source $ZSH/oh-my-zsh.sh
 #export EDITOR="subl -w"
 export EDITOR="vim"
 
+# Go wants a GOPATH
+export GOPATH=$HOME/go
+
 # Don't page if it's less than a full screen
 export PAGER="less -F -X"
 
 # make vim happy
 export TERM=xterm-256color
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/go/1.2.1/libexec/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/go/1.2.1/libexec/bin:$GOPATH/bin"
 
 export K2PDFOPT="-dev kpw"
 
