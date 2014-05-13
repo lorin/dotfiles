@@ -40,6 +40,7 @@ alias dir="pwd | pbcopy"
 alias qss="pkill QuickSilver && open -a QuickSilver"
 alias a="ansible"
 alias ap="ansible -m ping"
+alias r="rails"
 
 function console {
     aws ec2 get-console-output --instance-id $1 | jq ".Output" | gsed -e 's/\\r//g' -e 's/\\n/\n/g'

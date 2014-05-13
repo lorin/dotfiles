@@ -12,9 +12,10 @@ set autowrite
 " .rabl is ruby
 au BufNewFile,BufRead *.rabl setlocal ft=ruby
 
-" 2 tabs for html and ruby
+" 2 tabs for html, ruby, and coffeescript
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
 
 " Don't autocomment .vimrc or .zshrc
 autocmd FileType vim setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -61,6 +62,8 @@ let g:ctrlp_custom_ignore = {
 set ignorecase
 set smartcase
 
+let mapleader = ","
+
 " Jump to definition
 nnoremap <leader>. :CtrlPTag<cr>
 
@@ -70,7 +73,9 @@ noremap <leader>d :let @* = expand("%")<cr>
 noremap <leader>D :let @* = expand("%:p")<cr>
 
 " Close the buffer without losing the split
-nmap <leader>b :bprevious<CR>:bdelete #<CR>
+nmap <leader>b :Bclose<CR>
+
+map ,, <C-^>
 
 " Highlight current line
 set cursorline
@@ -91,7 +96,8 @@ com! DiffSaved call s:DiffWithSaved()
 
 " Save files before make
 " http://stackoverflow.com/a/8583273/742
-au QuickFixCmdPre * write
+" Comment out for now, since it breaks Ag
+" au QuickFixCmdPre * write
 
 let g:SuperTabDefaultCompletionType = "context"
 
@@ -130,6 +136,9 @@ cabbrev ag Ag
 " I prefer :rake to Rake
 cabbrev rake Rake
 
+" I prefer :vimrc to Vimrc
+cabbrev vimrc Vimrc
+
 " JSONlint
 com! JSON %!jsonlint
 
@@ -164,4 +173,4 @@ set listchars=tab:▸\ ,eol:¬
 let g:mustache_abbreviations = 1
 
 " test current file with rspec
-map ,t :w\|:!bin/rspec %<cr>
+map ,t :wa\|:!bin/rspec %<cr>
