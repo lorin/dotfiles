@@ -1,6 +1,16 @@
+let g:pathogen_disabled = []
+
+" Disable a bunch of plugins to figure out what's going on
+" call add(g:pathogen_disabled, 'ag.vim')
+
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+
+" Workaround for Ruby slowness with syntax highlighting
+" http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
+set re=1
+
 
 " Don't need vi compatibility
 set nocompatible
@@ -174,3 +184,4 @@ let g:mustache_abbreviations = 1
 
 " test current file with rspec
 map ,t :wa\|:!bin/rspec %<cr>
+map ,T :wa\|:execute ":!bin/rspec " . expand('%') . ":" . line('.')<CR>
