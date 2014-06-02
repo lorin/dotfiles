@@ -146,7 +146,8 @@ export PAGER="less -F -X"
 # make vim happy
 export TERM=xterm-256color
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/go/1.2.1/libexec/bin:$GOPATH/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/go/1.2.1/libexec/bin:$GOPATH/bin:/usr/texbin"
+
 
 export K2PDFOPT="-dev kpw"
 

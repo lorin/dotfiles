@@ -26,11 +26,15 @@
 	diff = true
 [alias]
     aa = add --all
-    d = diff --name-status
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-    unstage = reset HEAD
-	sha = rev-parse HEAD
     ci = commit -v
+    co = commit -v
+    d = diff --name-status
+    ed = "!vim $(git status  | grep modified | awk '{ print $2 }')"
+    edl = "!vim $(git last | awk '{ print $2 }')"
     l = "!. ~/.githelpers && pretty_git_log"
+    last = diff HEAD^ --name-status
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+    sha = rev-parse HEAD
+    unstage = reset HEAD
 [init]
 	templatedir = ~/.git_template

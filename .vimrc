@@ -27,12 +27,17 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
 
+" fold by indent in cofeescript
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+
 " Don't autocomment .vimrc or .zshrc
 autocmd FileType vim setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType zsh setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " .json is json
 au BufRead,BufNewFile *.json set filetype=json
+" Show quotes in json content
+let g:vim_json_syntax_conceal = 0
 
 " .yml is ansible
 au BufRead,BufNewFile *.yml set filetype=ansible
@@ -152,8 +157,8 @@ cabbrev vimrc Vimrc
 " JSONlint
 com! JSON %!jsonlint
 
-com! Vimrc e ~/.vimrc
-com! Zshrc e ~/.zshrc
+com! Vimrc tabnew | e ~/.vimrc
+com! Zshrc tabnew | e ~/.zshrc
 
 if executable('coffeetags')
   let g:tagbar_type_coffee = {
