@@ -42,6 +42,10 @@ alias a="ansible"
 alias ap="ansible -m ping"
 alias r="rails"
 
+function branch {
+    git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy ; pbpaste ; echo
+}
+
 function console {
     aws ec2 get-console-output --instance-id $1 | jq ".Output" | gsed -e 's/\\r//g' -e 's/\\n/\n/g'
 }
