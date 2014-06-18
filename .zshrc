@@ -39,9 +39,15 @@ alias instance=describe-instances
 alias dir="pwd | pbcopy"
 alias qss="pkill QuickSilver ; open -a QuickSilver"
 alias a="ansible"
+alias an="ansible-playbook"
 alias ap="ansible -m ping"
+alias al="ansible localhost"
 alias r="rails"
+alias ip="curl -s icanhazip.com | tr -d '\n' | pbcopy ; pbpaste ; echo"
 
+function instance {
+    aws ec2 describe-instances --instance-ids $1 | jq -r '.Reservations[].Instances[].Tags[0]["Value"]'
+}
 function branch {
     git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy ; pbpaste ; echo
 }

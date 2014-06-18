@@ -1,7 +1,8 @@
 let g:pathogen_disabled = []
 
 " Disable a bunch of plugins to figure out what's going on
-call add(g:pathogen_disabled, 'trailertrash.vim')
+"call add(g:pathogen_disabled, 'trailertrash.vim')
+call add(g:pathogen_disabled, 'vim-yankstack')
 
 execute pathogen#infect()
 syntax on
@@ -190,3 +191,7 @@ let g:mustache_abbreviations = 1
 " test current file with rspec
 map ,t :wa\|:!bin/rspec %<cr>
 map ,T :wa\|:execute ":!bin/rspec " . expand('%') . ":" . line('.')<CR>
+
+" Don't auto-fold in RST files
+let g:riv_fold_auto_update = 0
+

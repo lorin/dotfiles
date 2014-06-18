@@ -35,6 +35,7 @@
     last = diff HEAD^ --name-status
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
     sha = rev-parse HEAD
+    st = status
     unstage = reset HEAD
 [init]
 	templatedir = ~/.git_template
