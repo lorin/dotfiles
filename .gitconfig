@@ -26,6 +26,7 @@
 	diff = true
 [alias]
     aa = add --all
+    ancestor = merge-base master HEAD
     ci = commit -v
     co = commit -v
     d = diff --name-status
