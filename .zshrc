@@ -22,6 +22,7 @@ DEFAULT_USER=lorinhochstein
 alias vim="/usr/local/bin/vim"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
+alias gitconfig="vim ~/.gitconfig"
 alias zshrclocal="vim ~/.zshrc.local"
 alias amend="git commit --amend --no-edit"
 alias gci="git commit -v"
@@ -35,7 +36,6 @@ alias t="ctags -R ."
 alias uuid="uuidgen | tr -d - | tr '[:upper:]' '[:lower:]' | tr -d '\n' | pbcopy ; pbpaste ; echo"
 alias ec2="aws ec2"
 alias describe-instances="aws ec2 describe-instances --instance-ids"
-alias instance=describe-instances
 alias dir="pwd | pbcopy"
 alias qss="pkill QuickSilver ; open -a QuickSilver"
 alias a="ansible"
@@ -44,9 +44,10 @@ alias ap="ansible -m ping"
 alias al="ansible localhost"
 alias r="rails"
 alias ip="curl -s icanhazip.com | tr -d '\n' | pbcopy ; pbpaste ; echo"
+alias cuc="bundled_cucumber --tags ~@ignore"
 
 function instance {
-    aws ec2 describe-instances --instance-ids $1 | jq -r '.Reservations[].Instances[].Tags[0]["Value"]'
+    aws ec2 describe-instances --instance-ids $1 | jq -r '.Reservations[].Instances[]'
 }
 function branch {
     git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy ; pbpaste ; echo
