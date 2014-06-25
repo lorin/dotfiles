@@ -31,6 +31,7 @@
     ci = commit -v
     co = commit -v
     d = diff --name-status
+    diff-ancestor = "!git difftool $(git ancestor)"
     ed = "!vim $(git status  | grep modified | awk '{ print $2 }')"
     edl = "!vim $(git last | awk '{ print $2 }')"
     l = "!. ~/.githelpers && pretty_git_log"
