@@ -57,6 +57,7 @@ highlight clear SignColumn
 set encoding=utf-8
 set textwidth=80
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#hunks#enabled=0
 
 " Open tagbar on the left
 let g:tagbar_left = 1
