@@ -125,6 +125,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Code folding
 set foldmethod=syntax
 set nofoldenable
+" Set a high fold level so it doesn't fold by default
+set foldlevel=10
 
 " Show tabline at the top
 let g:airline#extensions#tabline#enabled = 1
