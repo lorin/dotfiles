@@ -45,6 +45,7 @@ alias al="ansible localhost"
 alias r="rails"
 alias ip="curl -s icanhazip.com | tr -d '\n' | pbcopy ; pbpaste ; echo"
 alias cuc="bundled_cucumber --tags ~@ignore"
+alias reflog="git reflog"
 
 function instance {
     aws ec2 describe-instances --instance-ids $1 | jq -r '.Reservations[].Instances[]'

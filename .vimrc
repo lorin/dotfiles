@@ -3,6 +3,7 @@ let g:pathogen_disabled = []
 " Disable a bunch of plugins to figure out what's going on
 "call add(g:pathogen_disabled, 'trailertrash.vim')
 "call add(g:pathogen_disabled, 'vim-yankstack')
+" call add(g:pathogen_disabled, 'riv.vim')
 
 execute pathogen#infect()
 syntax on
