@@ -93,6 +93,10 @@ noremap <leader>D :let @* = expand("%:p")<cr>
 " Close the buffer without losing the split
 nmap <leader>b :Bclose<CR>
 
+" Cycle through buffers
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
+
 map ,, <C-^>
 
 " Highlight current line
