@@ -203,3 +203,5 @@ map ,T :wa\|:execute ":!bin/rspec " . expand('%') . ":" . line('.')<CR>
 " Don't auto-fold in RST files
 let g:riv_fold_auto_update = 0
 
+" Zap search highlights on C-l
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l)
