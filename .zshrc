@@ -16,10 +16,14 @@ DEFAULT_USER=lorinhochstein
 #POWERLINE_RIGHT_A="exit-status"
 #POWERLINE_RIGHT_B="none"
 
+# Up the file limit
+ulimit -S -n 10240
 
 
 # Aliases
+alias s="bin/rspec spec --format progress --fail-fast"
 alias vim="/usr/local/bin/vim"
+alias vimr="open -a VimR"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias gitconfig="vim ~/.gitconfig"
@@ -46,6 +50,9 @@ alias r="rails"
 alias ip="curl -s icanhazip.com | tr -d '\n' | pbcopy ; pbpaste ; echo"
 alias cuc="bundled_cucumber --tags ~@ignore"
 alias reflog="git reflog"
+alias tac="gtac"
+alias emacs="/Users/lorinhochstein/Applications/Aquamacs.app/Contents/MacOS/Aquamacs"
+alias notebook="ipython notebook"
 
 function instance {
     aws ec2 describe-instances --instance-ids $1 | jq -r '.Reservations[].Instances[]'

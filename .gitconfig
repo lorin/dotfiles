@@ -30,6 +30,7 @@
     ancestor = merge-base master HEAD
     ci = commit -v
     co = commit -v
+    copy = clone --depth 1
     d = diff --name-status
     diff-ancestor = "!git difftool $(git ancestor)"
     ed = "!vim $(git status  | grep modified | awk '{ print $2 }')"
@@ -40,6 +41,7 @@
     open = browse
     sha = rev-parse HEAD
     st = status
+    switch = checkout -
     unstage = reset HEAD
 [init]
 	templatedir = ~/.git_template

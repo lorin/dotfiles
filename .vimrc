@@ -27,7 +27,9 @@ au BufNewFile,BufRead *.rabl setlocal ft=ruby
 " 2 tabs for html, ruby, and coffeescript
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype r setlocal ts=2 sts=2 sw=2
 autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
+autocmd Filetype tla setlocal ts=2 sts=2 sw=2
 
 " fold by indent in cofeescript
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
@@ -47,6 +49,9 @@ au BufRead,BufNewFile *.yml set filetype=ansible
 " Templates for new file
 au BufNewFile *.py 0r ~/.vim/py.skel
 au BufNewFile *.html 0r ~/.vim/html.skel
+
+" Handle tabs properly in makefiles
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
 " Needed for airline to show
 set laststatus=2
@@ -197,7 +202,7 @@ set listchars=tab:▸\ ,eol:¬
 let g:mustache_abbreviations = 1
 
 " test current file with rspec
-map ,t :wa\|:!bin/rspec %<cr>
+map ,t :wa\|:!bin/rspec --fail-fast %<cr>
 map ,T :wa\|:execute ":!bin/rspec " . expand('%') . ":" . line('.')<CR>
 
 " Don't auto-fold in RST files
