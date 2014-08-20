@@ -152,6 +152,13 @@ plugins=(git autojump bundler rbenv brew vagrant heroku vim-interaction vi-mode 
 
 source $ZSH/oh-my-zsh.sh
 
+# Customize prompt to show the number of background jobs
+# Copy-pasted from robbyrussesel.zsh-time with minor modifications
+local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
+local prompt_jobs="%(1j.%{$fg[yellow]%}%j%{$reset_color%}%{$fg[red]%}z%{$reset_color%} .)"
+local rr_prompt='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+PROMPT="${prompt_jobs}${rr_prompt}"
+
 # User configuration
 #export EDITOR="subl -w"
 export EDITOR="vim"
