@@ -168,6 +168,8 @@ cabbrev rake Rake
 " I prefer :vimrc to Vimrc
 cabbrev vimrc Vimrc
 
+cabbrev Tr TrailerTrim
+
 " JSONlint
 com! JSON %!jsonlint
 
@@ -210,3 +212,7 @@ let g:riv_fold_auto_update = 0
 
 " Zap search highlights on C-l
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l)
+
+" Don't auto-start instant markdown
+let g:instant_markdown_autostart = 0
+
