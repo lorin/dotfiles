@@ -22,6 +22,7 @@ ulimit -S -n 10240
 
 # Aliases
 alias s="bin/rspec spec --format progress --fail-fast"
+alias vi=vim
 alias vim="/usr/local/bin/vim"
 alias vimr="open -a VimR"
 alias vimrc="vim ~/.vimrc"
@@ -53,6 +54,7 @@ alias reflog="git reflog"
 alias tac="gtac"
 alias emacs="/Users/lorinhochstein/Applications/Aquamacs.app/Contents/MacOS/Aquamacs"
 alias notebook="ipython notebook"
+alias vssh="vagrant ssh"
 
 function instance {
     aws ec2 describe-instances --instance-ids $1 | jq -r '.Reservations[].Instances[]'
@@ -67,6 +69,10 @@ function console {
 
 function in {
     aws ec2 describe-instances --instance-ids $1 | jq ".Reservations[0].Instances[0]"
+}
+
+function json {
+    jq "" < $1
 }
 
 # Workaround for https://github.com/robbyrussell/oh-my-zsh/issues/2673
@@ -174,8 +180,10 @@ export TERM=xterm-256color
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/go/1.2.1/libexec/bin:$GOPATH/bin:/usr/texbin"
 
-
 export K2PDFOPT="-dev kpw"
+
+# Needed by xmllint to find AsciiDoc's catalog files
+export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
 
 [ -s ~/.scm_breeze/scm_breeze.sh ] && source ~/.scm_breeze/scm_breeze.sh
 

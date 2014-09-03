@@ -169,6 +169,7 @@ cabbrev rake Rake
 cabbrev vimrc Vimrc
 
 cabbrev Tr TrailerTrim
+cabbrev Trim TrailerTrim
 
 " JSONlint
 com! JSON %!jsonlint
