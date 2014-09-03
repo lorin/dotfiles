@@ -7,10 +7,11 @@ if exists("b:current_synax")
 endif
 " Keywords
 syn keyword alloyQuantifier one lone no some all
+syn keyword alloyLogic not and or implies else iff
 syn keyword alloySigs sig abstract set
-syn keyword alloyCommands pred fact assert check
+syn keyword alloyCommands pred fact assert check fun
 syn keyword alloyImports open as
-syn keyword alloyOtherKeywords for but in
+syn keyword alloyOtherKeywords for but in let
 syn region alloyBlock start="{" end="}" fold transparent
 syn region alloyComment start="/\*"  end="\*/"
 syn region alloyOneLineComment oneline start="//" end=/$/
@@ -18,6 +19,7 @@ syn region alloyOneLineComment oneline start="//" end=/$/
 let b:current_syntax = "alloy"
 
 hi def link alloyQuantifier Keyword
+hi def link alloyLogic Keyword
 hi def link alloyOtherKeywords Keyword
 hi def link alloySigs Type
 hi def link alloyCommands Statement
