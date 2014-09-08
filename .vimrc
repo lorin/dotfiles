@@ -102,6 +102,9 @@ nmap <leader>b :Bclose<CR>
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 
+" open the current file
+noremap <leader>o :!open %<cr>
+
 map ,, <C-^>
 
 " Highlight current line
