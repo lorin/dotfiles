@@ -16,7 +16,7 @@
 [merge]
 	tool = Kaleidoscope
 [push]
-	default = simple
+	default = current
 [core]
     editor = vim
 	excludesfile = /Users/lorinhochstein/.gitignore_global
