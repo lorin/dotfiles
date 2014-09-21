@@ -3,7 +3,7 @@ let g:pathogen_disabled = []
 " Disable a bunch of plugins to figure out what's going on
 "call add(g:pathogen_disabled, 'trailertrash.vim')
 "call add(g:pathogen_disabled, 'vim-yankstack')
-" call add(g:pathogen_disabled, 'riv.vim')
+call add(g:pathogen_disabled, 'riv.vim')
 
 execute pathogen#infect()
 syntax on
@@ -220,3 +220,28 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l)
 " Don't auto-start instant markdown
 let g:instant_markdown_autostart = 0
 
+" From Damien Conway
+" https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/.vimrc
+
+"====[ Show when lines extend past column 80 "]================================>-<=====================
+
+" highlight ColorColumn ctermbg=magenta
+
+" function! MarkMargin (on)
+"     if exists('b:MarkMargin')
+"         try
+"             call matchdelete(b:MarkMargin)
+"         catch /./
+"         endtry
+"         unlet b:MarkMargin
+"     endif
+"     if a:on
+"         let b:MarkMargin = matchadd('ColorColumn', '\%82v', 100)
+"     endif
+" endfunction
+
+" augroup MarkMargin
+"     autocmd!
+"     autocmd  BufEnter  *       :call MarkMargin(1)
+"     autocmd  BufEnter  *.vp*   :call MarkMargin(0)
+" augroup END
