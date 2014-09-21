@@ -1,3 +1,4 @@
-export VIM=$SSHHOME/.sshrc.d
+# export VIM=$SSHHOME/.sshrc.d
+export MYVIMRC=$SSHHOME/.sshrc.d/vimrc
 # vi key bindings
 set -o vi
