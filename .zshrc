@@ -118,6 +118,12 @@ EOF
     fi
 }
 
+function commit
+{
+    repo=$(git remote show origin -n | grep "Fetch URL" | sed 's/.*:\(.*\)\.git/\1/')
+    hub browse $repo commit/$1
+}
+
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

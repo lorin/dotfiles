@@ -3,7 +3,7 @@ let g:pathogen_disabled = []
 " Disable a bunch of plugins to figure out what's going on
 "call add(g:pathogen_disabled, 'trailertrash.vim')
 "call add(g:pathogen_disabled, 'vim-yankstack')
-call add(g:pathogen_disabled, 'riv.vim')
+" call add(g:pathogen_disabled, 'riv.vim')
 
 execute pathogen#infect()
 syntax on
@@ -12,7 +12,6 @@ filetype plugin indent on
 " Workaround for Ruby slowness with syntax highlighting
 " http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
 set re=1
-
 
 " Don't need vi compatibility
 set nocompatible
