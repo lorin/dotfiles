@@ -36,6 +36,7 @@ alias gitx="open -a GitX ."
 alias make="/usr/local/Cellar/make/4.0/bin/make"
 alias pf="open -a Path\ Finder"
 alias ctags="/usr/local/bin/ctags"
+alias sha="git sha"
 alias tags="ctags *.h *.cpp"
 alias t="ctags -R ."
 alias uuid="uuidgen | tr -d - | tr '[:upper:]' '[:lower:]' | tr -d '\n' | pbcopy ; pbpaste ; echo"
@@ -55,6 +56,7 @@ alias tac="gtac"
 alias emacs="/Users/lorinhochstein/Applications/Aquamacs.app/Contents/MacOS/Aquamacs"
 alias notebook="ipython notebook"
 alias vssh="vagrant ssh"
+alias master="git fetch origin master:master"
 
 function instance {
     aws ec2 describe-instances --instance-ids $1 | jq -r '.Reservations[].Instances[]'
@@ -223,3 +225,4 @@ bindkey "^D" delete-char
 
 source  ~/.zshrc.local
 source ~/aws_zsh_completer.sh
+source /Users/lorinhochstein/.iterm2_shell_integration.zsh

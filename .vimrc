@@ -4,6 +4,7 @@ let g:pathogen_disabled = []
 "call add(g:pathogen_disabled, 'trailertrash.vim')
 "call add(g:pathogen_disabled, 'vim-yankstack')
 " call add(g:pathogen_disabled, 'riv.vim')
+call add(g:pathogen_disabled, 'python-mode')
 
 execute pathogen#infect()
 syntax on
@@ -207,8 +208,8 @@ set listchars=tab:▸\ ,eol:¬
 let g:mustache_abbreviations = 1
 
 " test current file with rspec
-map ,t :wa\|:!bin/rspec --fail-fast %<cr>
-map ,T :wa\|:execute ":!bin/rspec " . expand('%') . ":" . line('.')<CR>
+map ,t :wa\|:!./bin/rspec --fail-fast %<cr>
+map ,T :wa\|:execute ":!./bin/rspec " . expand('%') . ":" . line('.')<CR>
 
 " Don't auto-fold in RST files
 let g:riv_fold_auto_update = 0

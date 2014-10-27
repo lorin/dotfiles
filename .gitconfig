@@ -45,3 +45,5 @@
     unstage = reset HEAD
 [init]
 	templatedir = ~/.git_template
+[gitreview]
+	username = lorinh
