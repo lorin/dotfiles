@@ -19,6 +19,9 @@ DEFAULT_USER=lorinhochstein
 # Up the file limit
 ulimit -S -n 10240
 
+# Quote quotes like this: isn''t
+setopt rcquotes
+
 
 # Aliases
 alias s="bin/rspec spec --format progress --fail-fast"
@@ -32,6 +35,7 @@ alias zshrclocal="vim ~/.zshrc.local"
 alias amend="git commit --amend --no-edit"
 alias gci="git commit -v"
 alias index="find . -name index.html | head -n1 | xargs open"
+alias i="open _build/html/index.html"
 alias gitx="open -a GitX ."
 alias make="/usr/local/Cellar/make/4.0/bin/make"
 alias pf="open -a Path\ Finder"
