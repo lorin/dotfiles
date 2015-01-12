@@ -27,6 +27,7 @@ setopt rcquotes
 alias s="bin/rspec spec --format progress --fail-fast"
 alias vi=vim
 alias vim="/usr/local/bin/vim"
+# alias vim="/usr/local/bin/nvim"
 alias vimr="open -a VimR"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
@@ -61,6 +62,11 @@ alias emacs="/Users/lorinhochstein/Applications/Aquamacs.app/Contents/MacOS/Aqua
 alias notebook="ipython notebook"
 alias vssh="vagrant ssh"
 alias master="git fetch origin master:master"
+alias file="file -h"
+
+function instances {
+    aws ec2 describe-instances | jq '.Reservations'
+}
 
 function instance {
     aws ec2 describe-instances --instance-ids $1 | jq -r '.Reservations[].Instances[]'
@@ -181,8 +187,6 @@ PROMPT="${prompt_jobs}${rr_prompt}"
 #export EDITOR="subl -w"
 export EDITOR="vim"
 
-# Go wants a GOPATH
-export GOPATH=$HOME/go
 
 # Don't page if it's less than a full screen
 export PAGER="less -F -X"
@@ -190,7 +194,10 @@ export PAGER="less -F -X"
 # make vim happy
 export TERM=xterm-256color
 
-PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/go/1.2.1/libexec/bin:$GOPATH/bin:/usr/texbin"
+# Go wants a GOPATH
+export GOPATH=$HOME/go
+
+PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/opt/go/libexec/bin:/usr/texbin"
 
 export PATH=~/.local/bin:$PATH
 
@@ -207,9 +214,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### rbenv support
 eval "$(rbenv init -)"
 
-# Docker
-# http://docs.docker.io/en/latest/installation/mac/
-export DOCKER_HOST=tcp://
+# Docker stuff is in .zshrc.local
 
 # Development version of ansible
 #source ~/dev/ansible/hacking/env-setup
@@ -230,3 +235,4 @@ bindkey "^D" delete-char
 source  ~/.zshrc.local
 source ~/aws_zsh_completer.sh
 source /Users/lorinhochstein/.iterm2_shell_integration.zsh
+
