@@ -183,6 +183,10 @@ local prompt_jobs="%(1j.%{$fg[yellow]%}%j%{$reset_color%}%{$fg[red]%}z%{$reset_c
 local rr_prompt='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 PROMPT="${prompt_jobs}${rr_prompt}"
 
+
+# Antlr
+export CLASSPATH=.:/usr/local/Cellar/antlr/4.4/antlr-4.4-complete.jar
+
 # User configuration
 #export EDITOR="subl -w"
 export EDITOR="vim"
