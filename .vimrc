@@ -34,6 +34,12 @@ autocmd Filetype tla setlocal ts=2 sts=2 sw=2
 " fold by indent in cofeescript
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 
+" fold by indent in python
+autocmd BufNewFile,BufReadPost *.py setl foldmethod=indent nofoldenable
+
+" fold by indent in yml
+autocmd BufNewFile,BufReadPost *.yml setl foldmethod=indent nofoldenable
+
 " Don't autocomment .vimrc or .zshrc
 autocmd FileType vim setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType zsh setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -87,13 +93,16 @@ set smartcase
 
 let mapleader = ","
 
+" fold with space
+nnoremap <space> za
+vnoremap <space> zf
+
 " Jump to definition
 nnoremap <leader>. :CtrlPTag<cr>
-
 " Copy the directory name to clipboard
-noremap <leader>d :let @* = expand("%")<cr>
+noremap <leader>d :let @+ = expand("%")<cr>
 " Full directory
-noremap <leader>D :let @* = expand("%:p")<cr>
+noremap <leader>D :let @+ = expand("%:p")<cr>
 
 " Close the buffer without losing the split
 nmap <leader>b :Bclose<CR>
