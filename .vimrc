@@ -24,12 +24,13 @@ set autowrite
 " .rabl is ruby
 au BufNewFile,BufRead *.rabl setlocal ft=ruby
 
-" 2 tabs for html, ruby, and coffeescript
+" 2 tabs for html, ruby, xml and coffeescript
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype r setlocal ts=2 sts=2 sw=2
 autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
 autocmd Filetype tla setlocal ts=2 sts=2 sw=2
+autocmd Filetype xml setlocal ts=2 sts=2 sw=2 expandtab
 
 " fold by indent in cofeescript
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
