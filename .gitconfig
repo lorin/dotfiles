@@ -47,3 +47,5 @@
 	templatedir = ~/.git_template
 [gitreview]
 	username = lorinh
+[http]
+	postBuffer = 524288000

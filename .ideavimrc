@@ -1,3 +1,4 @@
 " Cycle through buffers
 map <Tab> gt
 map <S-Tab> gT
+map <space> zc

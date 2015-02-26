@@ -63,6 +63,7 @@ alias notebook="ipython notebook"
 alias vssh="vagrant ssh"
 alias master="git fetch origin master:master"
 alias file="file -h"
+alias idea="/Applications/IntelliJ\ IDEA\ 14\ CE.app/Contents/MacOS/idea"
 
 function instances {
     aws ec2 describe-instances | jq '.Reservations'
@@ -183,6 +184,8 @@ local prompt_jobs="%(1j.%{$fg[yellow]%}%j%{$reset_color%}%{$fg[red]%}z%{$reset_c
 local rr_prompt='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 PROMPT="${prompt_jobs}${rr_prompt}"
 
+# Make mvn happy
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Antlr
 export CLASSPATH=.:/usr/local/Cellar/antlr/4.4/antlr-4.4-complete.jar

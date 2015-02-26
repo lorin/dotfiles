@@ -31,6 +31,8 @@ autocmd Filetype r setlocal ts=2 sts=2 sw=2
 autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
 autocmd Filetype tla setlocal ts=2 sts=2 sw=2
 autocmd Filetype xml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype groovy setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType cpp set shiftwidth=4 softtabstop=4 expandtab
 
 " fold by indent in cofeescript
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
@@ -40,6 +42,9 @@ autocmd BufNewFile,BufReadPost *.py setl foldmethod=indent nofoldenable
 
 " fold by indent in yml
 autocmd BufNewFile,BufReadPost *.yml setl foldmethod=indent nofoldenable
+
+" fold by indent in xml
+autocmd BufNewFile,BufReadPost *.xml setl foldmethod=indent nofoldenable
 
 " Don't autocomment .vimrc or .zshrc
 autocmd FileType vim setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -52,6 +57,9 @@ let g:vim_json_syntax_conceal = 0
 
 " .yml is ansible
 au BufRead,BufNewFile *.yml set filetype=ansible
+
+" .travis.yml is yaml
+au BufRead,BufNewFile .travis.yml set filetype=yaml
 
 " Templates for new file
 au BufNewFile *.py 0r ~/.vim/py.skel
@@ -255,3 +263,8 @@ let g:instant_markdown_autostart = 0
 "     autocmd  BufEnter  *       :call MarkMargin(1)
 "     autocmd  BufEnter  *.vp*   :call MarkMargin(0)
 " augroup END
+
+" C++-ery
+let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
+
+
