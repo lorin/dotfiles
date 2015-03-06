@@ -1,4 +1,11 @@
 " Cycle through buffers
 map <Tab> gt
 map <S-Tab> gT
+
+" close fold with space
 map <space> zc
+
+
+" system clipboard
+set clipboard+=unnamed
+
