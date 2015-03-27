@@ -175,7 +175,12 @@ function commit
 #plugins=(git autojump bundler rbenv brew vagrant heroku vim-interaction vi-mode)
 plugins=(git autojump bundler rbenv brew vagrant heroku vim-interaction vi-mode virtualenvwrapper)
 
+
 source $ZSH/oh-my-zsh.sh
+
+# Don't want to have to quote square brackets
+alias bundled_rake="noglob bundled_rake"
+
 
 # Customize prompt to show the number of background jobs
 # Copy-pasted from robbyrussesel.zsh-time with minor modifications
