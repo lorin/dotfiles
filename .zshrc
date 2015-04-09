@@ -63,7 +63,7 @@ alias notebook="ipython notebook"
 alias vssh="vagrant ssh"
 alias master="git fetch origin master:master"
 alias file="file -h"
-alias idea="/Applications/IntelliJ\ IDEA\ 14\ CE.app/Contents/MacOS/idea"
+alias idea="setopt NO_HUP; setopt NO_CHECK_JOBS; /Applications/IntelliJ\ IDEA\ 14\ CE.app/Contents/MacOS/idea"
 
 function instances {
     aws ec2 describe-instances | jq '.Reservations'
