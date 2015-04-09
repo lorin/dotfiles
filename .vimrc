@@ -10,6 +10,9 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
 " Workaround for Ruby slowness with syntax highlighting
 " http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
 set re=1
@@ -122,6 +125,9 @@ nmap <leader>b :Bclose<CR>
 
 " open the current file
 noremap <leader>o :!open %<cr>
+
+" toggle relative numbers
+nnoremap <leader>n :set relativenumber! relativenumber?<CR>
 
 map ,, <C-^>
 
@@ -266,5 +272,4 @@ let g:instant_markdown_autostart = 0
 
 " C++-ery
 let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
-
 
