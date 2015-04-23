@@ -11,7 +11,6 @@ syntax on
 filetype plugin indent on
 
 
-nnoremap <C-n> :call NumberToggle()<cr>
 
 " Workaround for Ruby slowness with syntax highlighting
 " http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
@@ -67,6 +66,7 @@ au BufRead,BufNewFile .travis.yml set filetype=yaml
 " Templates for new file
 au BufNewFile *.py 0r ~/.vim/py.skel
 au BufNewFile *.html 0r ~/.vim/html.skel
+au BufNewFile Makefile 0r ~/.vim/Makefile.skel
 
 " Handle tabs properly in makefiles
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
@@ -128,6 +128,7 @@ noremap <leader>o :!open %<cr>
 
 " toggle relative numbers
 nnoremap <leader>n :set relativenumber! relativenumber?<CR>
+nnoremap <C-n> :set relativenumber! relativenumber?<CR>
 
 map ,, <C-^>
 
