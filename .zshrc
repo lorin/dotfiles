@@ -246,5 +246,5 @@ bindkey "^D" delete-char
 
 source  ~/.zshrc.local
 source ~/aws_zsh_completer.sh
-source /Users/lorinhochstein/.iterm2_shell_integration.zsh
+source ~/.iterm2_shell_integration.zsh
 
