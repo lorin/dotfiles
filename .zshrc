@@ -181,13 +181,13 @@ source $ZSH/oh-my-zsh.sh
 # Don't want to have to quote square brackets
 alias bundled_rake="noglob bundled_rake"
 
-
 # Customize prompt to show the number of background jobs
 # Copy-pasted from robbyrussesel.zsh-time with minor modifications
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 local prompt_jobs="%(1j.%{$fg[yellow]%}%j%{$reset_color%}%{$fg[red]%}z%{$reset_color%} .)"
 local rr_prompt='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
-PROMPT="${prompt_jobs}${rr_prompt}"
+local rr_prompt_no_ret_status='%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+PROMPT="${prompt_jobs}${rr_prompt_no_ret_status}"
 
 # Make mvn happy
 export JAVA_HOME=$(/usr/libexec/java_home)
