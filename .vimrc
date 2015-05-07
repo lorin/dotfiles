@@ -4,7 +4,7 @@ let g:pathogen_disabled = []
 "call add(g:pathogen_disabled, 'trailertrash.vim')
 "call add(g:pathogen_disabled, 'vim-yankstack')
 " call add(g:pathogen_disabled, 'riv.vim')
-call add(g:pathogen_disabled, 'python-mode')
+call add(g:pathogen_disabled, 'syntastic')
 
 execute pathogen#infect()
 syntax on
@@ -156,8 +156,9 @@ com! DiffSaved call s:DiffWithSaved()
 
 let g:SuperTabDefaultCompletionType = "context"
 
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+let &t_SI = "\<Esc>]50;CursorShape=1\x7" " vertical bar
+" let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block
+let &t_EI = "\<Esc>]50;CursorShape=2\x7" " underscore
 
 " Code folding
 set foldmethod=syntax
