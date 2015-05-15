@@ -112,6 +112,11 @@ function postCallVim
   osascript -e 'tell application "MacVim" to activate'
 }
 
+function circle {
+    repo=$(git remote -v | head -n1 | awk '{ print $2 }' | sed 's/git@github.com:\(.*\).git/\1/')
+    open "https://circleci.com/gh/$repo"
+}
+
 function vp
 {
     url=$(
@@ -190,7 +195,8 @@ local rr_prompt_no_ret_status='%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[
 PROMPT="${prompt_jobs}${rr_prompt_no_ret_status}"
 
 # Make mvn happy
-export JAVA_HOME=$(/usr/libexec/java_home)
+# This causes a problem with gradle (Classs JavaHelpLauncher is implemented in both..), so we comment it out
+# export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Antlr
 export CLASSPATH=.:/usr/local/Cellar/antlr/4.4/antlr-4.4-complete.jar
