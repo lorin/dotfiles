@@ -27,9 +27,10 @@ setopt rcquotes
 alias s="bin/rspec spec --format progress --fail-fast"
 alias vi=vim
 alias vim="/usr/local/bin/vim"
-# alias vim="/usr/local/bin/nvim"
+alias vim="/usr/local/bin/nvim"
 alias vimr="open -a VimR"
 alias vimrc="vim ~/.vimrc"
+alias nvimrc="vim ~/.nvimrc"
 alias zshrc="vim ~/.zshrc"
 alias gitconfig="vim ~/.gitconfig"
 alias zshrclocal="vim ~/.zshrc.local"
