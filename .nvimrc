@@ -1,5 +1,8 @@
 let g:pathogen_disabled = []
 
+" Work around virtualenv
+let g:python_host_prog='/usr/bin/python'
+
 " Disable a bunch of plugins to figure out what's going on
 "call add(g:pathogen_disabled, 'trailertrash.vim')
 " call add(g:pathogen_disabled, 'riv.vim')
@@ -24,6 +27,7 @@ set autowrite
 " File types
 " .rabl is ruby
 au BufNewFile,BufRead *.rabl setlocal ft=ruby
+au BufNewFile,BufRead *.j2 setlocal ft=jinja
 
 " 2 tabs for html, ruby, and coffeescript
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
