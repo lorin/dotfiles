@@ -66,6 +66,14 @@ alias master="git fetch origin master:master"
 alias file="file -h"
 alias idea="setopt NO_HUP; setopt NO_CHECK_JOBS; /Applications/IntelliJ\ IDEA\ 14\ CE.app/Contents/MacOS/idea"
 
+# Zap the current git branch, which has already been merged upstream
+function zap {
+    CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    git checkout master
+    git pull --prune
+    git branch -d $CURRENT_BRANCH
+}
+
 function instances {
     aws ec2 describe-instances | jq '.Reservations'
 }
