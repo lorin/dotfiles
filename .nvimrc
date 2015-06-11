@@ -24,6 +24,13 @@ set nocompatible
 "Write the old file out when switching between files.
 set autowrite
 
+" incremental search
+set incsearch
+
+
+" Soft tabs
+set expandtab
+
 " File types
 " .rabl is ruby
 au BufNewFile,BufRead *.rabl setlocal ft=ruby
