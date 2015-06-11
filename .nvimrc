@@ -27,9 +27,14 @@ set autowrite
 " incremental search
 set incsearch
 
-
 " Soft tabs
 set expandtab
+
+" toggle relative numbers
+nnoremap <leader>n :set relativenumber! relativenumber?<CR>
+nnoremap <C-n> :set relativenumber! relativenumber?<CR>
+
+
 
 " File types
 " .rabl is ruby
@@ -206,7 +211,7 @@ cabbrev Trim TrailerTrim
 " JSONlint
 com! JSON %!jsonlint
 
-com! Vimrc tabnew | e ~/.vimrc
+com! Vimrc tabnew | e ~/.nvimrc
 com! Zshrc tabnew | e ~/.zshrc
 
 if executable('coffeetags')
