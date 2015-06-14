@@ -224,7 +224,7 @@ export TERM=xterm-256color
 # Go wants a GOPATH
 export GOPATH=$HOME/go
 
-PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/opt/go/libexec/bin:/usr/texbin"
+PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/opt/go/libexec/bin:/usr/texbin:/usr/local/infer-osx-v0.1.0/infer/infer/bin"
 
 export PATH=~/.local/bin:$PATH
 
