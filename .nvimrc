@@ -165,8 +165,10 @@ com! DiffSaved call s:DiffWithSaved()
 
 let g:SuperTabDefaultCompletionType = "context"
 
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+" neovim does not respect these, see https://github.com/neovim/neovim/wiki/FAQ#how-can-i-change-the-cursor-shape-in-the-terminal
+let &t_SI = "\<Esc>]50;CursorShape=1\x7" " vertical bar
+" let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block
+let &t_EI = "\<Esc>]50;CursorShape=2\x7" " underscore
 
 " Code folding
 set foldmethod=syntax

@@ -214,6 +214,9 @@ export CLASSPATH=.:/usr/local/Cellar/antlr/4.4/antlr-4.4-complete.jar
 #export EDITOR="subl -w"
 export EDITOR="vim"
 
+# Change cursor shape in neovim
+# see https://github.com/neovim/neovim/wiki/FAQ#how-can-i-change-the-cursor-shape-in-the-terminal
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 # Don't page if it's less than a full screen
 export PAGER="less -F -X"
