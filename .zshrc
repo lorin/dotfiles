@@ -50,6 +50,8 @@ plugins=(git autojump vi-mode)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+
 # export MANPATH="/usr/local/man:$MANPATH"
 #
 #
@@ -79,6 +81,10 @@ export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+# Don't page if it's less than a full screen
+export PAGER="less -F -X"
+
+
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
@@ -105,8 +111,8 @@ alias vimrc=nvimrc
 alias zshrc="vim ~/.zshrc"
 
 # git aliases
-alias gs="git status"
-alias ga="git add -p ."
+# alias gs="git status"
+# alias ga="git add -p . && git add ."
 alias ci="git ci"
 
 # Fix the cursor's shape so it's an underscore
@@ -128,6 +134,8 @@ bindkey "^E" end-of-line
 bindkey "^K" kill-whole-line
 bindkey "^D" delete-char
 
+# scmpuff
+eval "$(scmpuff init -s)"
 
 # pyenv-virtualenvwrapper
 eval "$(pyenv init -)"
