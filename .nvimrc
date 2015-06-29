@@ -50,6 +50,9 @@ set tabstop=4
 " number of spaces four indent
 set shiftwidth=4
 
+" allow switching buffers with unsaved file
+set hidden
+
 
 "
 " lets
