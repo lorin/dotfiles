@@ -1,4 +1,4 @@
-VPScriptMenuTitle = "Copy VoodooPad Link to clipboard"
+VPScriptMenuTitle = "Copy VoodooPad Link to Clipboard"
 
 from AppKit import *
 from Foundation import *
