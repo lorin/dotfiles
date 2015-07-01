@@ -81,6 +81,9 @@ export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+# Set it for GUI apps
+launchctl setenv JAVA_HOME $JAVA_HOME
+
 # Don't page if it's less than a full screen
 export PAGER="less -F -X"
 
@@ -140,5 +143,6 @@ eval "$(scmpuff init -s)"
 # pyenv-virtualenvwrapper
 eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
 
 source /Users/lorin/.iterm2_shell_integration.zsh
