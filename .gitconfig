@@ -1,25 +1,25 @@
 [user]
 	name = Lorin Hochstein
-    email = lorinh@gmail.com
-    #email = lorin.hochstein@sendgrid.com
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[diff]
-	tool = Kaleidoscope
+    email = lhochstein@netflix.com
+    #email = lorinh@gmail.com
+; [difftool "Kaleidoscope"]
+; 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+; [diff]
+; 	tool = Kaleidoscope
 [difftool]
 	prompt = false
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+; [mergetool "Kaleidoscope"]
+; 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+; 	trustExitCode = true
 [mergetool]
 	prompt = false
 	keepBackup = true
-[merge]
-	tool = Kaleidoscope
+; [merge]
+; 	tool = Kaleidoscope
 [push]
 	default = current
 [core]
-    editor = vim
+    editor = nvim
 	excludesfile = /Users/lorinhochstein/.gitignore_global
 #    editor = atom -w
 #	editor = subl -w
