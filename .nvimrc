@@ -11,6 +11,7 @@ Plug 'csexton/trailertrash.vim'
 Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-commentary'
+Plug 'rking/ag.vim'
 
 call plug#end()
 
@@ -54,6 +55,12 @@ set shiftwidth=4
 " allow switching buffers with unsaved file
 set hidden
 
+" Code folding
+set foldmethod=syntax
+set nofoldenable
+" Set a high fold level so it doesn't fold by default
+set foldlevel=10
+
 
 "
 " lets
@@ -96,8 +103,8 @@ com! Zshrc tabnew | e ~/.zshrc
 " abbrevations
 "
 
-" I prefer :vimrc to Vimrc
 cabbrev vimrc Vimrc
 cabbrev nvimrc Vimrc
 cabbrev Tr TrailerTrim
+cabbrev ag Ag
 
