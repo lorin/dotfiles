@@ -8,6 +8,7 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'guns/vim-clojure-static'
 Plug 'csexton/trailertrash.vim'
+Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-commentary'
 
