@@ -79,9 +79,8 @@ PROMPT="${prompt_jobs}${rr_prompt_no_ret_status}"
 # export ARCHFLAGS="-arch x86_64"
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-
 # Set it for GUI apps
+export JAVA_HOME=$(/usr/libexec/java_home)
 launchctl setenv JAVA_HOME $JAVA_HOME
 
 # Don't page if it's less than a full screen
@@ -112,6 +111,7 @@ alias gitconfig="vim ~/.gitconfig"
 alias vim=nvim
 alias vimrc=nvimrc
 alias zshrc="vim ~/.zshrc"
+alias zshrc.local="vim ~/.zshrc.local"
 
 # git aliases
 # alias gs="git status"
@@ -146,3 +146,4 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 
 source /Users/lorin/.iterm2_shell_integration.zsh
+source ~/.zshrc.local
