@@ -28,6 +28,14 @@ colorscheme grb256
 " Don't need vi compatibility
 set nocompatible
 
+set encoding=utf-8
+
+" word wrap
+set textwidth=80
+" disabled for now
+"set formatoptions+=ta
+
+
 " Highlight current line
 set cursorline
 
@@ -61,12 +69,24 @@ set nofoldenable
 " Set a high fold level so it doesn't fold by default
 set foldlevel=10
 
+"
+" File type fun
+"
+
+
+" .ftl is html
+au BufRead,BufNewFile *.ftl set filetype=html
+
+" fold by indent in html
+autocmd BufNewFile,BufReadPost *.ftl setl foldmethod=indent nofoldenable
+autocmd BufNewFile,BufReadPost *.html setl foldmethod=indent nofoldenable
+
 
 "
 " lets
 "
 
-let mapleader = ","
+let mapleader = " "
 
 " airline
 let g:airline_powerline_fonts = 1
@@ -91,6 +111,9 @@ noremap <leader>D :let @+ = expand("%:p")<cr>
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 
+" toggle relative numbers
+nnoremap <leader>n :set relativenumber! relativenumber?<CR>
+nnoremap <C-n> :set relativenumber! relativenumber?<CR>
 
 "
 " commands (?)
