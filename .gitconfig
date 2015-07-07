@@ -20,7 +20,7 @@
 	default = current
 [core]
     editor = nvim
-	excludesfile = /Users/lorinhochstein/.gitignore_global
+	excludesfile = ~/.gitignore
 #    editor = atom -w
 #	editor = subl -w
 [color]
