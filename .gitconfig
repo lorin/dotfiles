@@ -2,20 +2,20 @@
 	name = Lorin Hochstein
     email = lhochstein@netflix.com
     #email = lorinh@gmail.com
-; [difftool "Kaleidoscope"]
-; 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-; [diff]
-; 	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
 [difftool]
 	prompt = false
-; [mergetool "Kaleidoscope"]
-; 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-; 	trustExitCode = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
 [mergetool]
 	prompt = false
 	keepBackup = true
-; [merge]
-; 	tool = Kaleidoscope
+[merge]
+	tool = Kaleidoscope
 [push]
 	default = current
 [core]
@@ -34,8 +34,8 @@
     copy = clone --depth 1
     d = diff --name-status
     diff-ancestor = "!git difftool $(git ancestor)"
-    ed = "!vim $(git status  | grep modified | awk '{ print $2 }')"
-    edl = "!vim $(git last | awk '{ print $2 }')"
+    ed = "!nvim $(git status  | grep modified | awk '{ print $2 }')"
+    edl = "!nvim $(git last | awk '{ print $2 }')"
     l = "!. ~/.githelpers && pretty_git_log"
     last = diff HEAD^ --name-status
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
