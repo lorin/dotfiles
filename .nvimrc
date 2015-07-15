@@ -1,6 +1,7 @@
 " :PlugInstall to install
 call plug#begin('~/.vim/plugged')
 " plugins
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'quanganhdo/grb256'
 Plug 'kien/ctrlp.vim'
@@ -34,6 +35,7 @@ set encoding=utf-8
 set textwidth=80
 " disabled for now
 "set formatoptions+=ta
+set formatoptions-=t
 
 
 " Highlight current line
@@ -94,6 +96,11 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 let &t_te="\<Esc>]50;CursorShape=2\x7"
+
+" ctrlp: don't descend into build directory
+let g:ctrlp_custom_ignore = {
+   \ 'dir': '\v[\/]build$',
+   \ }
 
 " Recommended by https://github.com/guns/vim-clojure-static
 filetype plugin indent on
