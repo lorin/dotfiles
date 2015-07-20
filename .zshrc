@@ -104,6 +104,7 @@ export PAGER="less -F -X"
 
 alias activate="pyenv activate ${PWD##*/}"
 alias amend="git commit --amend --no-edit"
+alias gdt="git difftool"
 alias idea="/Applications/IntelliJ\ IDEA\ 14\ CE.app/Contents/MacOS/idea"
 alias master="git fetch origin master:master"
 alias nvimrc="vim ~/.nvimrc"
