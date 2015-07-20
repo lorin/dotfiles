@@ -13,6 +13,8 @@ Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-commentary'
 Plug 'rking/ag.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
@@ -122,6 +124,8 @@ noremap <leader>D :let @+ = expand("%:p")<cr>
 nnoremap <leader>n :set relativenumber! relativenumber?<CR>
 nnoremap <C-n> :set relativenumber! relativenumber?<CR>
 
+" Jump to ctag
+nnoremap <leader>. :CtrlPTag<cr>
 "
 " commands (?)
 "
