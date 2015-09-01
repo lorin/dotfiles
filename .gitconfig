@@ -20,7 +20,7 @@
 	default = current
 [core]
     editor = nvim
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/lorin/.gitignore
 #    editor = atom -w
 #	editor = subl -w
 [color]
@@ -50,3 +50,13 @@
 	username = lorinh
 [http]
 	postBuffer = 524288000
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
