@@ -83,6 +83,7 @@ export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 export JAVA_HOME=$(/usr/libexec/java_home)
 launchctl setenv JAVA_HOME $JAVA_HOME
 
+
 # Don't page if it's less than a full screen
 export PAGER="less -F -X"
 
@@ -104,12 +105,15 @@ export PAGER="less -F -X"
 
 alias activate="pyenv activate ${PWD##*/}"
 alias amend="git commit --amend --no-edit"
+alias c=cargo
 alias gdt="git difftool"
 alias idea="/Applications/IntelliJ\ IDEA\ 14\ CE.app/Contents/MacOS/idea"
 alias master="git fetch origin master:master"
 alias nvimrc="vim ~/.nvimrc"
 alias dir="pwd | pbcopy"
 alias gitconfig="vim ~/.gitconfig"
+alias sshconfig="vim ~/.ssh/config"
+alias view="nvim -R"
 alias vim=nvim
 alias vimrc=nvimrc
 alias zshrc="vim ~/.zshrc"
