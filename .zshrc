@@ -49,7 +49,7 @@ plugins=(git autojump vi-mode)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin"
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
