@@ -15,7 +15,11 @@ Plug 'tpope/vim-commentary'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
-
+Plug 'xingchaoet/TLAPlus'
+Plug 'digitaltoad/vim-jade'
+Plug 'derekwyatt/vim-scala'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 
@@ -132,6 +136,10 @@ nnoremap <leader>. :CtrlPTag<cr>
 
 com! Vimrc tabnew | e ~/.nvimrc
 com! Zshrc tabnew | e ~/.zshrc
+
+" jsonlint
+" npm install jsonlint -g
+com! JSON %!jsonlint
 
 "
 " abbrevations
