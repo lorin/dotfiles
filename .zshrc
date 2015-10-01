@@ -49,7 +49,16 @@ plugins=(git autojump vi-mode)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin"
+
+
+#
+# Go stuff
+#
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -112,6 +121,7 @@ alias master="git fetch origin master:master"
 alias nvimrc="vim ~/.nvimrc"
 alias dir="pwd | pbcopy"
 alias gitconfig="vim ~/.gitconfig"
+alias pf="open -a Path\ Finder"
 alias sshconfig="vim ~/.ssh/config"
 alias view="nvim -R"
 alias vim=nvim

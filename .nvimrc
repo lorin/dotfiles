@@ -20,6 +20,9 @@ Plug 'digitaltoad/vim-jade'
 Plug 'derekwyatt/vim-scala'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'lrampa/vim-apib'
+Plug 'ebfe/vim-racer'
+Plug 'fatih/vim-go'
 call plug#end()
 
 
@@ -31,9 +34,6 @@ colorscheme grb256
 " sets
 "
 
-
-" Don't need vi compatibility
-set nocompatible
 
 set encoding=utf-8
 
@@ -94,7 +94,7 @@ autocmd BufNewFile,BufReadPost *.html setl foldmethod=indent nofoldenable
 " lets
 "
 
-let mapleader = " "
+let mapleader = ","
 
 " airline
 let g:airline_powerline_fonts = 1
@@ -119,6 +119,11 @@ filetype plugin indent on
 noremap <leader>d :let @+ = expand("%")<cr>
 " Full directory
 noremap <leader>D :let @+ = expand("%:p")<cr>
+
+noremap <leader>t :make test<cr>
+
+" Close the buffer
+nmap <leader>b :bdelete<CR>
 
 " Cycle through buffers
 :nnoremap <Tab> :bnext<CR>
