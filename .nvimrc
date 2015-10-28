@@ -23,6 +23,10 @@ Plug 'honza/vim-snippets'
 Plug 'lrampa/vim-apib'
 Plug 'ebfe/vim-racer'
 Plug 'fatih/vim-go'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'nvie/vim-flake8'
+Plug 'tmhedberg/SimpylFold'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 
@@ -34,6 +38,8 @@ colorscheme grb256
 " sets
 "
 
+" save before make
+set autowrite
 
 set encoding=utf-8
 
@@ -77,17 +83,34 @@ set nofoldenable
 " Set a high fold level so it doesn't fold by default
 set foldlevel=10
 
+" Add go linter to runtime path
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+
 "
 " File type fun
 "
 
 
-" .ftl is html
 au BufRead,BufNewFile *.ftl set filetype=html
+au BufRead,BufNewFile *.mdk set filetype=markdown
+
 
 " fold by indent in html
 autocmd BufNewFile,BufReadPost *.ftl setl foldmethod=indent nofoldenable
 autocmd BufNewFile,BufReadPost *.html setl foldmethod=indent nofoldenable
+
+"
+"
+"
+" http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
+" Lint and vet go files on save
+autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+autocmd BufWritePost,FileWritePost *.py call Flake8()
+" go test
+au FileType go nmap <leader>t <Plug>(go-test)
 
 
 "
@@ -120,7 +143,8 @@ noremap <leader>d :let @+ = expand("%")<cr>
 " Full directory
 noremap <leader>D :let @+ = expand("%:p")<cr>
 
-noremap <leader>t :make test<cr>
+noremap <leader>m :make<cr>
+noremap <leader>T :make test<cr>
 
 " Close the buffer
 nmap <leader>b :bdelete<CR>
@@ -128,6 +152,9 @@ nmap <leader>b :bdelete<CR>
 " Cycle through buffers
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
+
+" jump back to the last buffer
+map ,, <C-^>
 
 " toggle relative numbers
 nnoremap <leader>n :set relativenumber! relativenumber?<CR>
@@ -142,6 +169,10 @@ nnoremap <leader>. :CtrlPTag<cr>
 com! Vimrc tabnew | e ~/.nvimrc
 com! Zshrc tabnew | e ~/.zshrc
 
+" Call the script named instance
+" See: https://gist.github.com/lorin/0719235506acc6762f30
+com! Instance silent !instance > /dev/null
+
 " jsonlint
 " npm install jsonlint -g
 com! JSON %!jsonlint
@@ -154,4 +185,5 @@ cabbrev vimrc Vimrc
 cabbrev nvimrc Vimrc
 cabbrev Tr TrailerTrim
 cabbrev ag Ag
+cabbrev in Instance
 
