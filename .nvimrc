@@ -27,8 +27,8 @@ Plug 'hynek/vim-python-pep8-indent'
 Plug 'nvie/vim-flake8'
 Plug 'tmhedberg/SimpylFold'
 Plug 'mattn/emmet-vim'
+Plug 'tell-k/vim-autopep8'
 call plug#end()
-
 
 " configs
 syntax on
@@ -108,7 +108,7 @@ autocmd QuickFixCmdPost    l* nested lwindow
 
 " Lint and vet go files on save
 autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
-autocmd BufWritePost,FileWritePost *.py call Flake8()
+autocmd BufWritePost,FileWritePost *.py call Autopep8() | call Flake8()
 " go test
 au FileType go nmap <leader>t <Plug>(go-test)
 
@@ -130,6 +130,9 @@ let &t_te="\<Esc>]50;CursorShape=2\x7"
 let g:ctrlp_custom_ignore = {
    \ 'dir': '\v[\/]build$',
    \ }
+
+" Don't show autopep8 diff window
+let g:autopep8_disable_show_diff=1
 
 " Recommended by https://github.com/guns/vim-clojure-static
 filetype plugin indent on
