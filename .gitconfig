@@ -29,8 +29,8 @@
     aa = add --all
     amend = commit --amend --no-edit
     ancestor = merge-base master HEAD
-    ci = commit -v
-    co = commit -v
+    ci = "!git difftool --cached; git commit -v"
+    co = "!git difftool --cached; git commit -v"
     copy = clone --depth 1
     d = diff --name-status
     diff-ancestor = "!git difftool $(git ancestor)"
