@@ -51,6 +51,9 @@ plugins=(git autojump vi-mode)
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin"
 
+# neovim wants XDG_CONFIG_HOME define
+export XDG_CONFIG_HOME=$HOME/.config
+
 
 #
 # Go stuff
