@@ -28,6 +28,8 @@ Plug 'nvie/vim-flake8'
 Plug 'tmhedberg/SimpylFold'
 Plug 'mattn/emmet-vim'
 Plug 'tell-k/vim-autopep8'
+Plug 'Rykka/riv.vim'
+Plug 'pearofducks/ansible-vim'
 call plug#end()
 
 " configs
@@ -108,7 +110,21 @@ autocmd QuickFixCmdPost    l* nested lwindow
 
 " Lint and vet go files on save
 autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+
+
+" PEP8 settings for Python files
+au BufRead,BufNewFile *.py set
+    \ tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+    \ textwidth=79
+    \ expandtab
+    \ autoindent
+    \ fileformat=unix
+
 autocmd BufWritePost,FileWritePost *.py call Autopep8() | call Flake8()
+
+
 " go test
 au FileType go nmap <leader>t <Plug>(go-test)
 
@@ -126,9 +142,9 @@ let g:airline#extensions#tabline#enabled = 1
 
 let &t_te="\<Esc>]50;CursorShape=2\x7"
 
-" ctrlp: don't descend into build directory
 let g:ctrlp_custom_ignore = {
-   \ 'dir': '\v[\/]build$',
+   \ 'dir': '\v[\/]build$|venv$|__pycache__$',
+   \ 'file': '\.pyc$'
    \ }
 
 " Don't show autopep8 diff window

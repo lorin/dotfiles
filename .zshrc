@@ -88,6 +88,8 @@ PROMPT="${prompt_jobs}${rr_prompt_no_ret_status}"
 #   export EDITOR='mvim'
 # fi
 
+export EDITOR='nvim'
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -120,7 +122,7 @@ alias activate="pyenv activate ${PWD##*/}"
 alias amend="git commit --amend --no-edit"
 alias c=cargo
 alias gdt="git difftool"
-alias idea="/Applications/IntelliJ\ IDEA\ 14\ CE.app/Contents/MacOS/idea"
+alias idea="/Applications/IntelliJ\ IDEA\ 15\ CE.app/Contents/MacOS/idea"
 alias master="git fetch origin master:master"
 alias nvimrc="vim ~/.nvimrc"
 alias dir="pwd | pbcopy"
