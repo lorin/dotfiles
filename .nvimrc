@@ -95,6 +95,7 @@ set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 
 au BufRead,BufNewFile *.ftl set filetype=html
 au BufRead,BufNewFile *.mdk set filetype=markdown
+au BufRead,BufNewFile *.pmd set filetype=markdown
 
 
 " fold by indent in html
@@ -111,6 +112,11 @@ autocmd QuickFixCmdPost    l* nested lwindow
 " Lint and vet go files on save
 autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
 
+" Jump to the last position in the file
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$")  && expand("%:t") != "COMMIT_EDITMSG" |
+    \   exe "normal g`\"" |
+    \ endif
 
 " PEP8 settings for Python files
 au BufRead,BufNewFile *.py set
@@ -142,10 +148,15 @@ let g:airline#extensions#tabline#enabled = 1
 
 let &t_te="\<Esc>]50;CursorShape=2\x7"
 
-let g:ctrlp_custom_ignore = {
-   \ 'dir': '\v[\/]build$|venv$|__pycache__$',
-   \ 'file': '\.pyc$'
-   \ }
+
+" https://github.com/kien/ctrlp.vim/issues/273
+" https://github.com/kien/ctrlp.vim/issues/174
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+"let g:ctrlp_custom_ignore = {
+"   \ 'dir': '\v[\/]build$|venv$|__pycache__$',
+"   \ 'file': '\.pyc$'
+"   \ }
 
 " Don't show autopep8 diff window
 let g:autopep8_disable_show_diff=1
@@ -181,6 +192,10 @@ nnoremap <C-n> :set relativenumber! relativenumber?<CR>
 
 " Jump to ctag
 nnoremap <leader>. :CtrlPTag<cr>
+
+" turn off highlight when hitting return
+:nnoremap <CR> :nohlsearch<cr>
+
 "
 " commands (?)
 "
@@ -199,10 +214,35 @@ com! JSON %!jsonlint
 "
 " abbrevations
 "
+"
 
 cabbrev vimrc Vimrc
 cabbrev nvimrc Vimrc
 cabbrev Tr TrailerTrim
 cabbrev ag Ag
 cabbrev in Instance
+
+"
+" Functions
+"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+"
+" From Gary Bernhardt's vimrc: https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
+
+
 
