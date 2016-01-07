@@ -76,7 +76,8 @@ local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 local prompt_jobs="%(1j.%{$fg[yellow]%}%j%{$reset_color%}%{$fg[red]%}z%{$reset_color%} .)"
 local rr_prompt='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 local rr_prompt_no_ret_status='%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
-PROMPT="${prompt_jobs}${rr_prompt_no_ret_status}"
+# PROMPT="${prompt_jobs}${rr_prompt_no_ret_status}"
+PROMPT="${prompt_jobs}${rr_prompt}"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
