@@ -60,3 +60,5 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[ignore]
+    cmd = "!echo \"$(git status --porcelain | grep '^??' | cut -c4-)\" >>.gitignore"
