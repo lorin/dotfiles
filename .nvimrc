@@ -162,6 +162,9 @@ let g:airline_powerline_fonts = 1
 " show tabline at the top
 let g:airline#extensions#tabline#enabled = 1
 
+" disable mapping of tab and shift-tab in riv
+let g:riv_ignored_nmaps = "<Tab>,<S-Tab>"
+
 let &t_te="\<Esc>]50;CursorShape=2\x7"
 
 
