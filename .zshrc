@@ -126,6 +126,7 @@ alias gdt="git difftool"
 alias jump='cd `greadlink -f .`'
 alias m='make'
 alias master="git fetch origin master:master"
+alias notebook="jupyter notebook"
 alias nvimrc="vim ~/.nvimrc"
 alias dir="pwd | pbcopy"
 alias gitconfig="vim ~/.gitconfig"
