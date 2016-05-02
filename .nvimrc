@@ -200,6 +200,12 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 let g:syntastic_python_checkers = ["flake8"]
 
+" Use QuickFix window instead of location list to avoid conflicts with
+" syntastic. For more details, see:
+" https://github.com/scrooloose/syntastic/issues/1650
+" https://github.com/fatih/vim-go/issues/814
+let g:go_list_type = "quickfix"
+
 " Recommended by https://github.com/guns/vim-clojure-static
 filetype plugin indent on
 "
