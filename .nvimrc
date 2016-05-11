@@ -191,6 +191,10 @@ let g:go_fmt_command = "goimports"
 
 let g:xml_syntax_folding=1
 
+" Disable syntastic on go
+" let g:syntastic_mode_map = { 'passive_filetypes': ['go'] }
+
+" This has no effect when go disabled on syntastic
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
 let g:tagbar_left=1
