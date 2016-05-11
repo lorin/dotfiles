@@ -43,6 +43,7 @@
     sha = rev-parse HEAD
     st = status
     switch = checkout -
+    test = rebase -i --exec \"make test\" master
     unstage = reset HEAD
 [init]
 	templatedir = ~/.git_template
