@@ -132,6 +132,7 @@ alias dir="pwd | pbcopy"
 alias gitconfig="vim ~/.gitconfig"
 alias pf="open -a Path\ Finder"
 alias pull="git checkout master && git pull --prune && git branch -d @{-1}"
+alias sha="git rev-parse HEAD | tee >(pbcopy)"
 alias sshconfig="vim ~/.ssh/config"
 alias view="nvim -R"
 alias vim=nvim
@@ -152,6 +153,10 @@ function fix {
 function nvim {
     /usr/local/bin/nvim $@
     fix
+}
+
+function jj {
+    pbpaste | jq ''
 }
 
 # Render a markdown file as html in the browser
