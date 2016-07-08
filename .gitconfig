@@ -35,11 +35,13 @@
     d = diff --name-status
     diff-ancestor = "!git difftool $(git ancestor)"
     ed = "!nvim $(git status  | grep modified | awk '{ print $2 }')"
-    edl = "!nvim $(git last | awk '{ print $2 }')"
+    edl = "!nvim $(git prev | awk '{ print $2 }')"
     l = "!. ~/.githelpers && pretty_git_log"
-    last = diff HEAD^ --name-status
+    # Show the last three branches we worked on
+    last = "!git reflog | grep 'moving' | awk '{ print $6 }' | egrep -v 'master|HEAD|[0-9a-f]{7}|[0-9a-f]{40}' | perl -ne 'print unless $seen{$_}++' | head -n3"
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
     open = browse
+    prev = diff HEAD^ --name-status
     sha = rev-parse HEAD
     st = status
     switch = checkout -
