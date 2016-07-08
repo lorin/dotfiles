@@ -123,6 +123,7 @@ alias activate="pyenv activate ${PWD##*/}"
 alias amend="git commit --amend --no-edit"
 alias c=cargo
 alias context="vim ~/Desktop/context.md"
+alias file='file -h'
 alias gdt="git difftool"
 alias jump='cd `greadlink -f .`'
 alias m='make'
