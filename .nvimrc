@@ -8,7 +8,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'guns/vim-clojure-static'
-Plug 'csexton/trailertrash.vim'
+" Plug 'csexton/trailertrash.vim' comment out for now
 Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-commentary'
@@ -35,6 +35,8 @@ Plug 'ervandew/supertab'
 Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-unimpaired'
+"Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " configs
@@ -191,6 +193,9 @@ let g:go_fmt_command = "goimports"
 
 let g:xml_syntax_folding=1
 
+" Disable syntastic on java
+let g:syntastic_mode_map = { 'passive_filetypes': ['java'] }
+
 " Disable syntastic on go
 " let g:syntastic_mode_map = { 'passive_filetypes': ['go'] }
 
@@ -210,6 +215,12 @@ let g:syntastic_python_checkers = ["flake8"]
 " https://github.com/fatih/vim-go/issues/814
 let g:go_list_type = "quickfix"
 
+" Use JSX highlighting on .js files, not just .jsx files
+let g:jsx_ext_required = 0
+
+" Don't hide markdown syntax
+let g:vim_markdown_conceal = 0
+
 " Recommended by https://github.com/guns/vim-clojure-static
 filetype plugin indent on
 "
@@ -218,7 +229,7 @@ filetype plugin indent on
 
 
 " Copy the directory name to clipboard
-noremap <leader>d :let @+ = expand("%")<cr>
+noremap <leader>d :let @+ = expand("%") . " " . line('.')<cr>
 " Full directory
 noremap <leader>D :let @+ = expand("%:p")<cr>
 
