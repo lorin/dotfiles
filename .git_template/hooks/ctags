@@ -2,5 +2,5 @@
 set -e
 PATH="/usr/local/bin:$PATH"
 trap "rm -f .git/tags.$$" EXIT
-ctags --tag-relative -Rf.git/tags.$$ --exclude=.git --exclude=build --exclude=node_modules
+ctags --tag-relative -Rf.git/tags.$$ --exclude=.git --exclude=build --exclude=node_modules --exclude=.gradle
 mv .git/tags.$$ .git/tags
