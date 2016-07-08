@@ -122,6 +122,7 @@ export PAGER="less -F -X"
 alias activate="pyenv activate ${PWD##*/}"
 alias amend="git commit --amend --no-edit"
 alias c=cargo
+alias context="vim ~/Desktop/context.md"
 alias gdt="git difftool"
 alias jump='cd `greadlink -f .`'
 alias m='make'
@@ -172,6 +173,12 @@ function html {
     pandoc -c $CSS $FNAME | browser
 }
 
+# Generate a uuid and copy it to the clipboard
+function uuid {
+    uuidgen | tr "[:upper:]" "[:lower:]" | pbcopy
+    pbpaste
+}
+
 # Some leftover emacs bindings even though we use
 # vim mode
 bindkey -v
@@ -188,6 +195,11 @@ eval "$(scmpuff init -s)"
 eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
+# https://github.com/aykamko/tag
+if (( $+commands[tag] )); then
+  tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
+  alias ag=tag
+fi
 
 source /Users/lorin/.iterm2_shell_integration.zsh
 source ~/.zshrc.local
