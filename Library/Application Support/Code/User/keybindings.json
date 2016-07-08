@@ -4,5 +4,6 @@
   { "key": "ctrl+w h",             "command": "workbench.action.focusLeftEditor" },
   { "key": "ctrl+w l",             "command": "workbench.action.focusRightEditor" },
   { "key": "ctrl+u",               "command": "scrollPageUp"},
-  { "key": "ctrl+d",               "command": "scrollPageDown"}
+  { "key": "ctrl+d",               "command": "scrollPageDown"},
+  { "key": "ctrl+]",               "command": "editor.action.goToDeclaration"}
 ]
