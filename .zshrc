@@ -202,5 +202,7 @@ if (( $+commands[tag] )); then
   alias ag=tag
 fi
 
+alias agv='ag --ignore vendor'
+
 source /Users/lorin/.iterm2_shell_integration.zsh
 source ~/.zshrc.local
