@@ -9,3 +9,8 @@ map <space> zc
 " system clipboard
 set clipboard+=unnamed
 
+" surround
+set surround
+
+" Map Control R to run
+map <C-r> :action Run<CR>
