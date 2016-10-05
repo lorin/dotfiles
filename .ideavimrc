@@ -13,4 +13,5 @@ set clipboard+=unnamed
 set surround
 
 " Map Control R to run
+" https://github.com/JetBrains/ideavim#executing-ide-actions
 map <C-r> :action Run<CR>
