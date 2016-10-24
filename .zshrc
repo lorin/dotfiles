@@ -191,6 +191,9 @@ bindkey "^D" delete-char
 
 # scmpuff
 eval "$(scmpuff init -s)"
+function ge {
+    nvim $(scmpuff expand $@)
+}
 
 # pyenv-virtualenvwrapper
 eval "$(pyenv init -)"
