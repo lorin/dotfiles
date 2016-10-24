@@ -6,12 +6,15 @@ map <S-Tab> gT
 map <space> zc
 
 
-" system clipboard
+" use system clipboard
 set clipboard+=unnamed
+
+" case-insensitive search
+set ic
 
 " surround
 set surround
 
-" Map Control R to run
 " https://github.com/JetBrains/ideavim#executing-ide-actions
 map <C-r> :action Run<CR>
+map <C-b> :action ToggleLineBreakpoint<CR>
