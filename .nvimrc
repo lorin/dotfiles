@@ -4,24 +4,24 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'quanganhdo/grb256'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'guns/vim-clojure-static'
-" Plug 'csexton/trailertrash.vim' comment out for now
+" Plug 'guns/vim-clojure-static'
+" Plug 'tpope/vim-fireplace'
+Plug 'csexton/trailertrash.vim'
 Plug 'tfnico/vim-gradle'
-Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-commentary'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'xingchaoet/TLAPlus'
 Plug 'digitaltoad/vim-jade'
-Plug 'derekwyatt/vim-scala'
+" Plug 'derekwyatt/vim-scala'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'lrampa/vim-apib'
-Plug 'ebfe/vim-racer'
+" Plug 'lrampa/vim-apib'
+" Plug 'ebfe/vim-racer'
 Plug 'fatih/vim-go'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'tmhedberg/SimpylFold'
@@ -29,14 +29,18 @@ Plug 'mattn/emmet-vim'
 Plug 'tell-k/vim-autopep8'
 Plug 'Rykka/riv.vim'
 Plug 'pearofducks/ansible-vim'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'ervandew/supertab'
 Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-unimpaired'
+
 "Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'kana/vim-textobj-user'
+Plug 'rhysd/vim-textobj-ruby'
 call plug#end()
 
 " configs
@@ -95,6 +99,9 @@ set foldlevel=10
 " Add go linter to runtime path
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 
+" If you make tabs visible using :set list
+" They will look like this: ▸····
+set listchars=tab:▸·
 
 
 "
@@ -106,6 +113,7 @@ au BufRead,BufNewFile *.ftl set filetype=html
 au BufRead,BufNewFile *.mdk set filetype=markdown
 au BufRead,BufNewFile *.pmd set filetype=markdown
 
+au BufRead,BufNewFile Makefile set list
 
 " fold by indent in html
 autocmd BufNewFile,BufReadPost *.ftl setl foldmethod=indent nofoldenable
@@ -113,6 +121,12 @@ autocmd BufNewFile,BufReadPost *.html setl foldmethod=indent nofoldenable
 
 " xml
 au FileType xml setlocal foldmethod=syntax
+
+" tex: enable word wrap on formatoptions
+au FileType tex set fo+=t
+
+" asciidoc: enable word wrap on formatoptions
+au FileType asciidoc set fo+=t
 
 
 "
@@ -172,7 +186,7 @@ let &t_te="\<Esc>]50;CursorShape=2\x7"
 
 " https://github.com/kien/ctrlp.vim/issues/273
 " https://github.com/kien/ctrlp.vim/issues/174
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard | grep -v ^vendor/']
 
 "let g:ctrlp_custom_ignore = {
 "   \ 'dir': '\v[\/]build$|venv$|__pycache__$',
@@ -194,7 +208,8 @@ let g:go_fmt_command = "goimports"
 let g:xml_syntax_folding=1
 
 " Disable syntastic on java
-let g:syntastic_mode_map = { 'passive_filetypes': ['java'] }
+let g:syntastic_mode_map = { 'passive_filetypes': ['java', 'go'] }
+
 
 " Disable syntastic on go
 " let g:syntastic_mode_map = { 'passive_filetypes': ['go'] }
@@ -205,14 +220,19 @@ let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 let g:tagbar_left=1
 
 " SuperTab tab completion
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+" let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "<c-p>"
 
 let g:syntastic_python_checkers = ["flake8"]
+
+" have syntastic always populate loc lists so :lnext and :lprev work
+"let g:syntastic_always_populate_loc_list = 1
 
 " Use QuickFix window instead of location list to avoid conflicts with
 " syntastic. For more details, see:
 " https://github.com/scrooloose/syntastic/issues/1650
 " https://github.com/fatih/vim-go/issues/814
+
 let g:go_list_type = "quickfix"
 
 " Use JSX highlighting on .js files, not just .jsx files
@@ -220,6 +240,9 @@ let g:jsx_ext_required = 0
 
 " Don't hide markdown syntax
 let g:vim_markdown_conceal = 0
+
+" Don't hide json quotes
+let g:vim_json_syntax_conceal = 0
 
 " Recommended by https://github.com/guns/vim-clojure-static
 filetype plugin indent on
@@ -234,6 +257,7 @@ noremap <leader>d :let @+ = expand("%") . " " . line('.')<cr>
 noremap <leader>D :let @+ = expand("%:p")<cr>
 
 noremap <leader>m :make<cr>
+noremap <leader>t :make test<cr>
 noremap <leader>T :make test<cr>
 
 " Close the buffer
@@ -263,6 +287,7 @@ nnoremap <leader>. :CtrlPTag<cr>
 
 com! Vimrc tabnew | e ~/.nvimrc
 com! Zshrc tabnew | e ~/.zshrc
+com! Now tabnew | e ~/now.md
 
 " Call the script named instance
 " See: https://gist.github.com/lorin/0719235506acc6762f30
@@ -282,6 +307,7 @@ cabbrev nvimrc Vimrc
 cabbrev Tr TrailerTrim
 cabbrev ag Ag
 cabbrev in Instance
+cabbrev now Now
 
 "
 " Functions
@@ -304,6 +330,3 @@ function! InsertTabWrapper()
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
-
-
-
