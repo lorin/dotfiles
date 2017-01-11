@@ -41,6 +41,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-ruby'
+Plug 'davidoc/taskpaper.vim'
+Plug 'yalesov/vim-emblem'
 call plug#end()
 
 " configs
@@ -48,11 +50,14 @@ syntax on
 colorscheme grb256
 
 "
-" sets
+" options
 "
 
 " save before make
 set autowrite
+
+" case insensitive search by default
+set ignorecase
 
 set encoding=utf-8
 
@@ -103,17 +108,38 @@ set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 " They will look like this: ▸····
 set listchars=tab:▸·
 
+"
+" Print options
+"
+
+" Use 8.5x11 letter paper, since default is A4
+set printoptions+=paper:letter
+
+" Print line numbers in hard copies
+set printoptions+=number:y
+
+" Don't print a header
+set printoptions+=header:0
+
+" narrower margins
+set printoptions+=left:2pc
+set printoptions+=right:2pc
+
+set printfont=courier:h9
 
 "
 " File type fun
 "
-
 
 au BufRead,BufNewFile *.ftl set filetype=html
 au BufRead,BufNewFile *.mdk set filetype=markdown
 au BufRead,BufNewFile *.pmd set filetype=markdown
 
 au BufRead,BufNewFile Makefile set list
+
+
+" Open now.taskpaper on startup
+" au VimEnter * if eval("@%") == "" | e ~/now.taskpaper | set filetype=taskpaper | endif
 
 " fold by indent in html
 autocmd BufNewFile,BufReadPost *.ftl setl foldmethod=indent nofoldenable
@@ -287,7 +313,7 @@ nnoremap <leader>. :CtrlPTag<cr>
 
 com! Vimrc tabnew | e ~/.nvimrc
 com! Zshrc tabnew | e ~/.zshrc
-com! Now tabnew | e ~/now.md
+com! Now tabnew | e ~/now.taskpaper
 
 " Call the script named instance
 " See: https://gist.github.com/lorin/0719235506acc6762f30
@@ -306,7 +332,7 @@ cabbrev vimrc Vimrc
 cabbrev nvimrc Vimrc
 cabbrev Tr TrailerTrim
 cabbrev ag Ag
-cabbrev in Instance
+"cabbrev in Instance
 cabbrev now Now
 
 "
@@ -329,4 +355,4 @@ function! InsertTabWrapper()
     endif
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
+cnoremap <s-tab> <c-n>
