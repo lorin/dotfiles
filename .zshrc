@@ -129,6 +129,7 @@ alias jump='cd `greadlink -f .`'
 alias m='make'
 alias master="git fetch origin master:master"
 alias notebook="jupyter notebook"
+alias now="vim ~/now.taskpaper"
 alias nvimrc="vim ~/.nvimrc"
 alias dir="pwd | pbcopy"
 alias gitconfig="vim ~/.gitconfig"
@@ -167,7 +168,11 @@ function jj {
 function html {
     CSS="https://rawgit.com/lorin/macdown/master/MacDown/Resources/Styles/GitHub2.css"
     if [ $#@ -eq 0 ]; then
-        FNAME=README.md
+        if [[ -a README.md ]]; then
+            FNAME=README.md
+        else
+            FNAME=(*.md)
+        fi
     else
         FNAME="$1"
     fi
@@ -209,3 +214,4 @@ alias agv='ag --ignore vendor'
 
 source /Users/lorin/.iterm2_shell_integration.zsh
 source ~/.zshrc.local
+
