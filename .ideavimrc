@@ -16,5 +16,9 @@ set ic
 set surround
 
 " https://github.com/JetBrains/ideavim#executing-ide-actions
-map <C-r> :action Run<CR>
-map <C-b> :action ToggleLineBreakpoint<CR>
+noremap <C-r> :action Run<CR>
+noremap <C-b> :action ToggleLineBreakpoint<CR>
+
+let mapleader = ","
+noremap <leader>d :action CopyPaths<CR>
+noremap <leader>D :action CopyPaths<CR>
