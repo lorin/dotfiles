@@ -122,6 +122,7 @@ export PAGER="less -F -X"
 alias activate="pyenv activate ${PWD##*/}"
 alias amend="git commit --amend --no-edit"
 alias c=cargo
+alias checkpoint="git commit -a -m 'WIP: checkpoint'"
 alias context="vim ~/Desktop/context.md"
 alias file='file -h'
 alias gdt="git difftool"
