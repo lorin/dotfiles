@@ -15,9 +15,13 @@ set ic
 " surround
 set surround
 
+" To see the names of all of the commands, type the following in IDEA
+" :actionlist
 " https://github.com/JetBrains/ideavim#executing-ide-actions
 noremap <C-r> :action Run<CR>
 noremap <C-b> :action ToggleLineBreakpoint<CR>
+noremap <C-n> :action GotoNextError<CR>
+noremap <C-p> :action GotoPreviousError<CR>
 
 let mapleader = ","
 noremap <leader>d :action CopyPaths<CR>
