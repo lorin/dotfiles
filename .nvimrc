@@ -152,7 +152,9 @@ au FileType xml setlocal foldmethod=syntax
 au FileType tex set fo+=t
 
 " asciidoc: enable word wrap on formatoptions
-au FileType asciidoc set fo+=t
+au FileType asciidoc setl fo+=t
+
+au FileType yaml setl shiftwidth=2
 
 
 "
@@ -269,6 +271,10 @@ let g:vim_markdown_conceal = 0
 
 " Don't hide json quotes
 let g:vim_json_syntax_conceal = 0
+
+" Python setup
+let g:python_host_prog  = "/Users/lorin/.virtualenvs/nvim/bin/python"
+let g:python3_host_prog = "/Users/lorin/.virtualenvs/nvim3/bin/python"
 
 " Recommended by https://github.com/guns/vim-clojure-static
 filetype plugin indent on
