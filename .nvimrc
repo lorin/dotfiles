@@ -43,6 +43,10 @@ Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-ruby'
 Plug 'davidoc/taskpaper.vim'
 Plug 'yalesov/vim-emblem'
+Plug 'fsharp/vim-fsharp', {
+      \ 'for': 'fsharp',
+      \ 'do':  'make fsautocomplete',
+      \}
 call plug#end()
 
 " configs
@@ -319,11 +323,16 @@ nnoremap <leader>. :CtrlPTag<cr>
 
 com! Vimrc tabnew | e ~/.nvimrc
 com! Zshrc tabnew | e ~/.zshrc
-com! Now tabnew | e ~/now.taskpaper
+com! Now source ~/.vim/sessions/now.vim
+cabbrev now Now
+" com! Now tabnew | e ~/now.taskpaper
 
 " Call the script named instance
 " See: https://gist.github.com/lorin/0719235506acc6762f30
 com! Instance silent !instance > /dev/null
+
+com! Uuid silent !uuidgen | tr "[:upper:]" "[:lower:]" | tr '-d' '\n' | pbcopy
+cabbrev uuid Uuid
 
 " jsonlint
 " npm install jsonlint -g
@@ -339,7 +348,6 @@ cabbrev nvimrc Vimrc
 cabbrev Tr TrailerTrim
 cabbrev ag Ag
 "cabbrev in Instance
-cabbrev now Now
 
 "
 " Functions
