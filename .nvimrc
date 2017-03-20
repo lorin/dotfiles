@@ -47,6 +47,7 @@ Plug 'fsharp/vim-fsharp', {
       \ 'for': 'fsharp',
       \ 'do':  'make fsautocomplete',
       \}
+Plug 'lorin/vim-alloy'
 call plug#end()
 
 " configs
@@ -56,6 +57,10 @@ colorscheme grb256
 "
 " options
 "
+"
+
+" always use the current file's directory as pwd
+set autochdir
 
 " save before make
 set autowrite
@@ -156,7 +161,8 @@ au FileType xml setlocal foldmethod=syntax
 au FileType tex set fo+=t
 
 " asciidoc: enable word wrap on formatoptions
-au FileType asciidoc setl fo+=t
+" disable for now
+" au FileType asciidoc setl fo+=t
 
 au FileType yaml setl shiftwidth=2
 
@@ -286,6 +292,8 @@ filetype plugin indent on
 " remaps
 "
 
+" Copyedit, push up and reload file
+noremap <leader>c :w<cr> :silent !git add . && git commit -m copyedit && git push<cr> :e<cr>
 
 " Copy the directory name to clipboard
 noremap <leader>d :let @+ = expand("%") . " " . line('.')<cr>
@@ -331,7 +339,11 @@ cabbrev now Now
 " See: https://gist.github.com/lorin/0719235506acc6762f30
 com! Instance silent !instance > /dev/null
 
-com! Uuid silent !uuidgen | tr "[:upper:]" "[:lower:]" | tr '-d' '\n' | pbcopy
+" com! Uuid silent ! uuidgen | tr "[:upper:]" "[:lower:]" | tr '-d' '\n' | pbcopy
+"com! Uuid r ! uuidgen | tr "[:upper:]" "[:lower:]"
+"
+" http://stackoverflow.com/a/42143238/742
+:com! Uuid exe "normal! i".system('uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n"')
 cabbrev uuid Uuid
 
 " jsonlint
