@@ -182,7 +182,7 @@ function html {
 
 # Generate a uuid and copy it to the clipboard
 function uuid {
-    uuidgen | tr "[:upper:]" "[:lower:]" | pbcopy
+    python -c 'import uuid;print(uuid.uuid1())' | pbcopy
     pbpaste
 }
 
