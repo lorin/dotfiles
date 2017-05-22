@@ -24,5 +24,6 @@ noremap <C-n> :action GotoNextError<CR>
 noremap <C-p> :action GotoPreviousError<CR>
 
 let mapleader = ","
+noremap <leader>b :action CloseActiveTab<CR>
 noremap <leader>d :action CopyPaths<CR>
 noremap <leader>D :action CopyPaths<CR>
