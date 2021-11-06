@@ -1,0 +1,40 @@
+alias agf="ag -l"
+alias agt="tag -g '!*test'"
+alias announce="defaults write ~/Library/Preferences/com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool YES && open /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesisServer.app"
+alias denounce="defaults write ~/Library/Preferences/com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool NO && killall SpeechSynthesisServer"
+alias nounce="defaults read ~/Library/Preferences/com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs && pgrep SpeechSynthesisServer"
+alias b="bat"
+alias br="git branch --show-current | tr -d '\n' | pbcopy && pbpaste"
+alias c="git add . && git commit -m 'checkpoint'"
+alias co="code ."
+alias init="touch README.md && git init && git add ."
+alias files="git files"
+
+# alias gdt="git difftool master"
+
+alias fgit="SPOTLESS_SKIP=1 git"
+alias g="SPOTLESS_SKIP=1 git"
+alias gg="SPOTLESS_SKIP=1 git"
+alias gron="gron -c"
+alias sgit="SPOTLESS_SKIP=1 git"
+alias gitconfig="code ~/.gitconfig"
+alias ki="~/ki/bin/ki.sh"
+alias l="exa -lah --git"
+alias lg=lazygit
+alias ls="exa"
+alias ll="ls -l --git"
+alias m="make"
+
+# take clipboard string and unescape the \n and \t stuff
+alias n="pbpaste | xargs gecho -e | tee /dev/tty | pbcopy"
+alias p="git push"
+alias pbaste=pbpaste
+alias pf="open -a Path\ Finder.app"
+alias pr="gh pr checkout"
+alias pull="git pull"
+alias sha='head -c 64 /dev/urandom | shasum -b | cut -c1-9 | tr -d '\n' | pbcopy && pbpaste'
+alias sw="git switch -"
+alias t="ls -T"
+alias today="date -u +%F"
+alias vimrc="nvim ~/.config/nvim/init.vim"
+alias zshrc="code ~/.zshrc"
