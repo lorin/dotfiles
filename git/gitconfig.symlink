@@ -1,0 +1,57 @@
+[user]
+	name = Lorin Hochstein
+	email = lhochstein@netflix.com
+[core]
+	#editor = code -w
+	editor = nvim
+	excludesfile = /Users/lhochstein/.gitignore_global
+	pager = bat -p
+#	pager = delta
+[delta]
+	syntax-theme = Dracula
+[interactive]
+	diffFilter = delta --color-only
+[commit]
+	cleanup = scissors
+[alias]
+	amend = commit --amend --no-edit
+	ci = commit -v
+	ed = "!code $(git status  | grep modified | awk '{ print $2 }')"
+	edl = "!code $(git prev | awk '{ print $2 }')"
+	files = "!git diff --name-only master | pbcopy && pbpaste"
+	# Show the last three branches we worked on
+	last = "!git reflog | grep 'moving' | awk '{ print $6 }' | egrep -v 'master|HEAD|[0-9a-f]{7}|/' | perl -ne 'print unless $seen{$_}++' | head -n10"
+	lg =log --oneline
+	me=commit --amend --author='Lorin Hochstein <lorinh@gmail.com>'
+	oss=cherry-pick -x --strategy=subtree -Xsubtree=oss/
+	prev = diff HEAD^ --name-status
+	sha = "!git rev-parse HEAD | tr -d '\n' | pbcopy && echo `pbpaste`"
+	since = "!git log --reverse --no-merges keel-nflx/master...$(git log | grep 'cherry picked from' | head -1 | sed -E 's/.*from commit (.+)\\)/\\1/')"
+	# stomp = !git reset $(git status -sb | cut -d'.' -f4 | awk '{print $1}') --hard
+	stomp = reset --hard @{upstream}
+	sw = switch -
+	hs = log --pretty='%C(yellow)%h %C(cyan)%ad %Cblue%aN%C(auto) %Creset%s' --date=relative --date-order --graph
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = upstream
+	followTags = true
+[init]
+	defaultBranch = main
