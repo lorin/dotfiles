@@ -53,5 +53,7 @@
 [push]
 	default = upstream
 	followTags = true
+[pull]
+	ff = only
 [init]
 	defaultBranch = main
