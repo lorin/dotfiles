@@ -1,0 +1,33 @@
+{
+    "jobs_tab_visibility": "shown",
+    "panes": {
+        "quadrants": [
+            "Source",
+            "Console",
+            "TabSet1",
+            "TabSet2"
+        ],
+        "tabSet1": [
+            "Environment",
+            "History",
+            "Connections",
+            "Build",
+            "VCS",
+            "Tutorial",
+            "Presentation"
+        ],
+        "tabSet2": [
+            "Files",
+            "Plots",
+            "Packages",
+            "Help",
+            "Viewer"
+        ],
+        "console_left_on_top": false,
+        "console_right_on_top": true
+    },
+    "editor_keybindings": "vim",
+    "pdf_previewer": "none",
+    "posix_terminal_shell": "zsh",
+    "editor_theme": "Clouds Midnight"
+}
