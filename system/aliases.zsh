@@ -23,5 +23,6 @@ alias pf="open -a Path\ Finder.app"
 alias sha='head -c 64 /dev/urandom | shasum -b | cut -c1-9 | tr -d '\n' | pbcopy && pbpaste'
 alias t="ls -T"
 alias today="date -u +%F"
+alias vim=nvim
 alias vimrc="nvim ~/.config/nvim/init.vim"
 alias zshrc="code ~/.zshrc"
