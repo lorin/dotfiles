@@ -15,6 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'udalov/kotlin-vim'
 
 " initialize plugin system
 call plug#end()
