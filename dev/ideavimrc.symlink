@@ -18,3 +18,4 @@ set virtualedit=onemore
 " actions (see original file for more details)
 noremap <C-n> :action GotoNextError<CR>
 noremap <C-p> :action GotoPreviousError<CR>
+set ideajoin
