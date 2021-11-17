@@ -4,7 +4,7 @@
 [core]
 	#editor = code -w
 	editor = nvim
-	excludesfile = /Users/lhochstein/.gitignore
+	excludesfile = /Users/lhochstein/.gitignore_global
 	pager = bat -p
 #	pager = delta
 [delta]
