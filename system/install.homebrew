@@ -1,6 +1,7 @@
 atuin
 autojump
 bat
+browser
 dog
 exa
 ffind
@@ -10,5 +11,6 @@ httpie
 jq
 mtr
 neovim
+pandoc
 ruby
 tree
