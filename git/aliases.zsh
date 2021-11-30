@@ -6,6 +6,7 @@ alias files="git files"
 alias fgit="SPOTLESS_SKIP=1 git"
 alias g="SPOTLESS_SKIP=1 git"
 alias gitconfig="code ~/.gitconfig"
+alias gdt="git difftool master"
 alias gg="SPOTLESS_SKIP=1 git"
 alias lg=lazygit
 alias pull="git pull"
