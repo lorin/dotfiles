@@ -12,6 +12,7 @@ jq
 mtr
 neovim
 pandoc
+rlwrap
 ruby
 tree
 watch
