@@ -30,6 +30,9 @@
 	;;     :extra-paths - vector of additional paths to add to the classpath
 	;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
 
+  ;; https://github.com/bhauman/rebel-readline
+   :aliases {:rebel {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+                     :main-opts  ["-m" "rebel-readline.main"]}}
   ;; :aliases {
   ;;   :deps {:extra-deps {org.clojure/tools.deps.alpha {:mvn/version "0.12.1084"}}}
   ;;   :test {:extra-paths ["test"]}
