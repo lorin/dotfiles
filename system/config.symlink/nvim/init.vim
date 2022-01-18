@@ -15,6 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'NoahTheDuke/vim-just'
 Plug 'udalov/kotlin-vim'
 
 " initialize plugin system
@@ -33,5 +34,9 @@ set clipboard=unnamed
 " Disable python2 support
 let g:loaded_python_provider = 0
 let g:python3_host_prog = "/opt/homebrew/bin/python3"
+
+" 4 space tabs
+set tabstop=4
+
 
 set number
