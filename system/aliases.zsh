@@ -1,8 +1,11 @@
 alias agf="ag -l"
 alias agt="tag -g '!*test'"
-alias announce="defaults write ~/Library/Preferences/com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool YES && launchctl kickstart gui/$UID/com.apple.speech.synthesisserver"
-alias denounce="defaults write ~/Library/Preferences/com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool NO && launchctl kill SIGTERM gui/$UID/com.apple.speech.synthesisserver && launchctl kill SIGTERM gui/$UID/com.apple.speech.synthesisserver"
-alias nounce="defaults read ~/Library/Preferences/com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs && launchctl print gui/$UID/com.apple.speech.synthesisserver"
+alias announce="cd ~/dev/announce-clj; just"
+#alias announce="/usr/local/bin/announce on"
+#alias denounce="/usr/local/bin/announce off"
+# alias announce="defaults write ~/Library/Preferences/com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool YES && launchctl kickstart gui/$UID/com.apple.speech.synthesisserver"
+# alias denounce="defaults write ~/Library/Preferences/com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool NO && launchctl kill SIGTERM gui/$UID/com.apple.speech.synthesisserver && launchctl kill SIGTERM gui/$UID/com.apple.speech.synthesisserver"
+#alias nounce="launchctl print gui/$UID/com.apple.speech.synthesisserver | head -n4"
 alias b="bat"
 alias co="code ."
 
@@ -13,7 +16,7 @@ alias ki="~/ki/bin/ki.sh"
 alias l="exa -lah --git"
 alias ls="exa"
 alias ll="ls -l --git"
-alias m="make"
+alias m="just"
 
 # take clipboard string and unescape the \n and \t stuff
 alias n="pbpaste | xargs gecho -e | tee /dev/tty | pbcopy"
