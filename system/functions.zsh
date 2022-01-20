@@ -14,3 +14,8 @@ function html {
     fi
     pandoc -c $CSS $FNAME | browser
 }
+
+# Convert a utc date to local time
+function utc {
+    gdate -d "$1 utc"
+}
