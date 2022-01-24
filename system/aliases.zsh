@@ -8,10 +8,11 @@ alias announce="cd ~/dev/announce-clj; just"
 #alias nounce="launchctl print gui/$UID/com.apple.speech.synthesisserver | head -n4"
 alias b="bat"
 alias co="code ."
-
-
 alias gron="gron -c"
 alias gitconfig="code ~/.gitconfig"
+
+# https://github.com/pqrs-org/Karabiner-Elements/issues/2780#issuecomment-991421683
+alias kara="sudo launchctl bootout gui/${UID}/org.pqrs.karabiner.NotificationWindow"
 alias ki="~/ki/bin/ki.sh"
 alias l="exa -lah --git"
 alias ls="exa"
