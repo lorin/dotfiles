@@ -17,6 +17,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'NoahTheDuke/vim-just'
 Plug 'udalov/kotlin-vim'
+Plug 'gberenfield/cljfold.vim'
+
 
 " initialize plugin system
 call plug#end()

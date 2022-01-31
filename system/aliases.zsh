@@ -1,6 +1,7 @@
 alias agf="ag -l"
 alias agt="tag -g '!*test'"
 alias announce="cd ~/dev/announce-clj; just"
+alias ann=announce
 #alias announce="/usr/local/bin/announce on"
 #alias denounce="/usr/local/bin/announce off"
 # alias announce="defaults write ~/Library/Preferences/com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool YES && launchctl kickstart gui/$UID/com.apple.speech.synthesisserver"
