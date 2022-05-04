@@ -1,1 +1,4 @@
 .DS_Store
+.clj-kondo
+.lsp
+.rebel_readline_history

@@ -42,3 +42,6 @@ set tabstop=4
 
 
 set number
+
+" enable mouse
+set mouse=a
