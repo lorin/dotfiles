@@ -54,6 +54,7 @@
 [push]
 	default = upstream
 	followTags = true
+	autoSetupRemote = true
 [pull]
 	ff = only
 [init]
