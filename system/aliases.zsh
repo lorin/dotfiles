@@ -19,7 +19,7 @@ alias ki="~/ki/bin/ki.sh"
 alias l="exa -lah --git"
 alias ls="exa"
 alias ll="ls -l --git"
-alias m="just"
+alias m="just || make"
 
 # take clipboard string and unescape the \n and \t stuff
 alias n="pbpaste | xargs gecho -e | tee /dev/tty | pbcopy"
