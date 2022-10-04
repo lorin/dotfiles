@@ -10,6 +10,7 @@ alias a=announce
 #alias nounce="launchctl print gui/$UID/com.apple.speech.synthesisserver | head -n4"
 alias b="bat"
 alias co="code ."
+alias dir="pwd | tr -d '\n' | pbcopy"
 alias gron="gron -c"
 alias gitconfig="code ~/.gitconfig"
 
