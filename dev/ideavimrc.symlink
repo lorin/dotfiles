@@ -10,7 +10,9 @@ set ic
 " surround
 set surround
 
-nnoremap p "0p
+"nnoremap p "0p
+"nnoremap x "0x
+"nnoremap d "0d
 
 " one past the end
 set virtualedit=onemore
